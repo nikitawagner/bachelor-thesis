@@ -8,6 +8,7 @@ const getNameByTicker = async (ticker) => {
 	if (!name.rows[0]) {
 		throw new ReturnError("Company found in Database.", 404);
 	}
+	return name.rows[0].name;
 };
 
 export default getNameByTicker;
