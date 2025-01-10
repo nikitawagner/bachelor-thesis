@@ -6,6 +6,87 @@ import { validTicker } from "../helper/validTicker.js";
 import { validInterval } from "../helper/validInterval.js";
 import formatTimeSeriesData from "../helper/formatTimeSeriesData.js";
 import { isValidDate } from "../helper/isValidDate.js";
+import { getAllCompanies } from "./companyRequestHandler.js";
+
+export const getIncludedTickers = async (interval, timeFrame) => {
+	try {
+		if (!validTimeFrame(timeFrame)) {
+			console.log(validTimeFrame(timeFrame));
+			throw new ReturnError(
+				"Invalid time frame. Must be one of TIME_SERIES_INTRADAY, TIME_SERIES_DAILY, TIME_SERIES_WEEKLY, TIME_SERIES_MONTHLY",
+				400
+			);
+		}
+		if (timeFrame === "TIME_SERIES_INTRADAY" && !validInterval(interval)) {
+			throw new ReturnError(
+				"Invalid interval. Must be one of 1min, 5min, 15min, 30min, 60min",
+				400
+			);
+		}
+		let res;
+		if (interval) {
+			const queryText = `SELECT DISTINCT c.ticker
+				FROM public.companies c
+				INNER JOIN public.prices p 
+					ON c.ticker = p.fk_company
+				WHERE p.price_interval = $1 
+				AND p.price_time_frame = $2`;
+			res = await query(queryText, [interval, timeFrame]);
+		} else {
+			const queryText = `SELECT DISTINCT c.ticker
+				FROM public.companies c
+				INNER JOIN public.prices p 
+					ON c.ticker = p.fk_company
+				WHERE p.price_interval IS NULL
+				AND p.price_time_frame = $1`;
+			res = await query(queryText, [timeFrame]);
+		}
+		return res.rows.map((row) => row.ticker);
+	} catch (error) {
+		throw new ReturnError(error, 500);
+	}
+};
+
+export const getExcludedTickers = async (interval, timeFrame) => {
+	try {
+		if (!validTimeFrame(timeFrame)) {
+			console.log(validTimeFrame(timeFrame));
+			throw new ReturnError(
+				"Invalid time frame. Must be one of TIME_SERIES_INTRADAY, TIME_SERIES_DAILY, TIME_SERIES_WEEKLY, TIME_SERIES_MONTHLY",
+				400
+			);
+		}
+		if (timeFrame === "TIME_SERIES_INTRADAY" && !validInterval(interval)) {
+			throw new ReturnError(
+				"Invalid interval. Must be one of 1min, 5min, 15min, 30min, 60min",
+				400
+			);
+		}
+		let res;
+		if (interval) {
+			const queryText = `SELECT c.ticker
+				FROM public.companies c
+				LEFT JOIN public.prices p 
+					ON c.ticker = p.fk_company 
+					AND p.price_interval = $1 
+					AND p.price_time_frame = $2
+				WHERE p.fk_company IS NULL;`;
+			res = await query(queryText, [interval, timeFrame]);
+		} else {
+			const queryText = `SELECT c.ticker
+				FROM public.companies c
+				LEFT JOIN public.prices p 
+					ON c.ticker = p.fk_company 
+					AND p.price_interval IS NULL 
+					AND p.price_time_frame = $1
+				WHERE p.fk_company IS NULL;`;
+			res = await query(queryText, [timeFrame]);
+		}
+		return res.rows.map((row) => row.ticker);
+	} catch (error) {
+		throw new ReturnError(error, 500);
+	}
+};
 
 export const getAllPricesByTicker = async (ticker, interval, timeFrame) => {
 	try {
@@ -143,6 +224,35 @@ export const updatePricesForTicker = async (ticker, interval, timeFrame) => {
 		});
 		await Promise.all(insertPromises);
 		return { message: "Prices updated successfully" };
+	} catch (error) {
+		throw new ReturnError(error, 500);
+	}
+};
+
+export const updateAllPricesInDatabase = async (interval, timeFrame) => {
+	try {
+		const companies = await getAllCompanies();
+		const tickers = companies.map((company) => company.ticker);
+		const updatePromises = tickers.map((ticker) =>
+			updatePricesForTicker(ticker, interval, timeFrame)
+		);
+		const results = await Promise.allSettled(updatePromises);
+
+		const errors = results
+			.filter((result) => result.status === "rejected")
+			.map((result) => result.reason.message);
+
+		const uniqueErrors = [...new Set(errors)];
+
+		const successfulTickers = results
+			.filter((result) => result.status === "fulfilled")
+			.map((result, index) => tickers[index]);
+
+		return {
+			message: "Prices update completed",
+			successfulTickers,
+			errors: uniqueErrors,
+		};
 	} catch (error) {
 		throw new ReturnError(error, 500);
 	}
