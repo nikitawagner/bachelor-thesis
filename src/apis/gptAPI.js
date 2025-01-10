@@ -6,7 +6,7 @@ const baseUrl = "https://api.openai.com/v1/";
 const gptAPI = axios.create({
 	baseURL: baseUrl,
 	headers: {
-		Authorization: `Bearer ${pprocess.env.OPENAI_API_KEY}`,
+		Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
 	},
 });
 
