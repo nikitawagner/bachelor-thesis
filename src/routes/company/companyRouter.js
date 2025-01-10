@@ -2,6 +2,7 @@ import express from "express";
 import {
 	addCompany,
 	deleteCompany,
+	getAllCompanies,
 	getCompanyByTicker,
 	updateCompany,
 } from "../../services/companyRequestHandler.js";
@@ -13,7 +14,15 @@ companyRouter.get("/:ticker", async (req, res, next) => {
 		const company = await getCompanyByTicker(ticker);
 		res.status(200).json(company);
 	} catch (error) {
-		console.log(error);
+		next(error);
+	}
+});
+
+companyRouter.get("/", async (req, res, next) => {
+	try {
+		const companies = await getAllCompanies();
+		res.status(200).json(companies);
+	} catch (error) {
 		next(error);
 	}
 });
@@ -24,7 +33,6 @@ companyRouter.post("/", async (req, res, next) => {
 		const newCompany = await addCompany(ticker, name, sector, volatility, size);
 		res.status(200).json(newCompany);
 	} catch (error) {
-		console.log(error);
 		next(error);
 	}
 });
@@ -41,7 +49,6 @@ companyRouter.patch("/", async (req, res, next) => {
 		);
 		res.status(200).json(updatedCompany);
 	} catch (error) {
-		console.log(error);
 		next(error);
 	}
 });
@@ -57,7 +64,6 @@ companyRouter.delete("/:ticker", async (req, res, next) => {
 			return res.status(200).json(deletedCompany);
 		}
 	} catch (error) {
-		console.log(error);
 		next(error);
 	}
 });
