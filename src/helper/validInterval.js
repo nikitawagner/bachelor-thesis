@@ -1,4 +1,4 @@
-const validInterval = (interval) => {
-	const intervalTypes = ["1", "5", "15", "30", "60"];
+export const validInterval = (interval) => {
+	const intervalTypes = ["1min", "5min", "15min", "30min", "60min"];
 	return intervalTypes.indexOf(interval) !== -1;
 };

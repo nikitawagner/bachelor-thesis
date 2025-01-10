@@ -1,17 +1,24 @@
 import express from "express";
 import {
-	addCompany,
-	deleteCompany,
-	getCompanyByTicker,
-	updateCompany,
-} from "../../services/companyRequestHandler.js";
-import { getAllPricesByTicker } from "../../services/priceRequestHandler.js";
+	getAllPricesByTicker,
+	getAllPricesByTimespan,
+	updatePricesForTicker,
+	deletePrices,
+} from "../../services/priceRequestHandler.js";
 
 const priceRouter = express.Router();
-priceRouter.get("/:ticker", async (req, res, next) => {
+
+priceRouter.post("/get/timespan", async (req, res, next) => {
 	try {
-		const { ticker } = req.params;
-		const prices = await getAllPricesByTicker(ticker);
+		const { ticker, interval, timeFrame, dateStart, dateEnd } = req.body;
+
+		const prices = await getAllPricesByTimespan(
+			ticker,
+			interval,
+			timeFrame,
+			dateStart,
+			dateEnd
+		);
 		res.status(200).json(prices);
 	} catch (error) {
 		console.log(error);
@@ -19,44 +26,33 @@ priceRouter.get("/:ticker", async (req, res, next) => {
 	}
 });
 
-priceRouter.post("/update/:ticker", async (req, res, next) => {
+priceRouter.post("/get/all", async (req, res, next) => {
 	try {
-		const { ticker } = req.params;
-		const updatedPrices = await updatePricesForTicker(ticker);
-		res.status(200).json(updatedPrices);
+		const { ticker, interval, timeFrame } = req.body;
+		const prices = await getAllPricesByTicker(ticker, interval, timeFrame);
+		res.status(200).json(prices);
 	} catch (error) {
 		console.log(error);
 		next(error);
 	}
 });
 
-priceRouter.patch("/", async (req, res, next) => {
+priceRouter.post("/update", async (req, res, next) => {
 	try {
-		const { ticker, name, sector, volatility, size } = req.body;
-		const updatedCompany = await updateCompany(
-			ticker,
-			name,
-			sector,
-			volatility,
-			size
-		);
-		res.status(200).json(updatedCompany);
+		const { ticker, interval, timeFrame } = req.body;
+		await updatePricesForTicker(ticker, interval, timeFrame);
+		res.status(200).json({ message: "Prices updated successfully" });
 	} catch (error) {
 		console.log(error);
 		next(error);
 	}
 });
 
-priceRouter.delete("/:ticker", async (req, res, next) => {
+priceRouter.delete("/", async (req, res, next) => {
 	try {
-		const { ticker } = req.params;
-		const company = await getCompanyByTicker(ticker);
-		if (!company) {
-			return res.status(404).json("Company not found");
-		} else {
-			const deletedCompany = await deleteCompany(ticker);
-			return res.status(200).json(deletedCompany);
-		}
+		const { ticker, interval, timeFrame } = req.body;
+		await deletePrices(ticker, interval, timeFrame);
+		res.status(200).json({ message: "Prices deleted successfully" });
 	} catch (error) {
 		console.log(error);
 		next(error);
