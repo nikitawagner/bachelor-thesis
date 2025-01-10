@@ -1,4 +1,5 @@
 import alphavantageAPI from "../apis/alphavantageAPI.js";
+import ReturnError from "../helper/ReturnError.js";
 
 const makeAlphaPriceRequest = async (
 	functionType,
