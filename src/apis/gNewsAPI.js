@@ -1,7 +1,7 @@
 import axios from "axios";
 import "dotenv/config";
 
-const baseUrl = "https://gnews.io/api/v4/top-headlines?";
+const baseUrl = "https://gnews.io/api/v4/search?";
 const gNewsAPI = axios.create({
 	baseURL: baseUrl,
 	params: {

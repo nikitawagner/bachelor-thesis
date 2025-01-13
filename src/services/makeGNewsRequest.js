@@ -29,10 +29,11 @@ const makeGNewsRequest = async (symbol, max, dateStart, dateEnd) => {
 		}
 		const { data, status, statusText } = await gNewsAPI.get("", {
 			params: {
-				q: `"$${symbol}" OR "${getNameByTicker(symbol)}"`,
+				q: `"$${symbol}" OR ${symbol}`,
 				max: max,
 				lang: "en",
-				country: "us",
+				from: dateStart,
+				to: dateEnd,
 			},
 		});
 		return { status: status, data: data, statusText: statusText };

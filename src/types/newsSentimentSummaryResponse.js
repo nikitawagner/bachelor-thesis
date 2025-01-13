@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { date, z } from "zod";
 
 const generateNewsSentimentSummaryResponse = () => {
 	const movingAverageDataSchema = z.object({
