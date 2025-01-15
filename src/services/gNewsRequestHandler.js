@@ -35,7 +35,7 @@ const processInBatches = async (items, batchSize, delayMs, processFunction) => {
 export const handleGetGNewsRequest = async (ticker, dateStart, dateEnd) => {
 	try {
 		const news = await query(
-			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3",
+			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3 AND news_type = 'gnews'",
 			[ticker, dateStart, dateEnd]
 		);
 		return news;
@@ -47,7 +47,7 @@ export const handleGetGNewsRequest = async (ticker, dateStart, dateEnd) => {
 export const handleGetAllGNewsRequest = async (ticker) => {
 	try {
 		const news = await query(
-			"SELECT * FROM sentiment_data WHERE fk_company = $1",
+			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND news_type = 'gnews'",
 			[ticker]
 		);
 		return news;
@@ -173,7 +173,7 @@ export const handleUpdateAllGNewsRequest = async (
 export const handleDeleteGNewsRequest = async (ticker, dateStart, dateEnd) => {
 	try {
 		await query(
-			"DELETE FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3",
+			"DELETE FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3 AND news_type = 'gnews'",
 			[ticker, dateStart, dateEnd]
 		);
 	} catch (error) {
@@ -183,7 +183,10 @@ export const handleDeleteGNewsRequest = async (ticker, dateStart, dateEnd) => {
 
 export const handleDeleteAllGNewsRequest = async (ticker) => {
 	try {
-		await query("DELETE FROM sentiment_data WHERE fk_company = $1", [ticker]);
+		await query(
+			"DELETE FROM sentiment_data WHERE fk_company = $1 AND news_type = 'gnews'",
+			[ticker]
+		);
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}
