@@ -5,7 +5,7 @@ import {
 	devPrompt,
 } from "../prompts/newsData.js";
 import generateNewsSentimentSummaryResponse from "../types/newsSentimentSummaryResponse.js";
-import getWebsiteContent from "./getWebsiteContent.js";
+import { encode, decode } from "gpt-tokenizer/model/gpt-4o";
 import makeGNewsRequest from "./makeGNewsRequest.js";
 import makeGPTRequest from "./makeGPTRequest.js";
 
@@ -15,6 +15,21 @@ const chunkArray = (array, chunkSize) => {
 		chunks.push(array.slice(i, i + chunkSize));
 	}
 	return chunks;
+};
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const processInBatches = async (items, batchSize, delayMs, processFunction) => {
+	const results = [];
+	for (let i = 0; i < items.length; i += batchSize) {
+		const batch = items.slice(i, i + batchSize);
+		const batchResults = await Promise.allSettled(batch.map(processFunction));
+		results.push(...batchResults);
+		if (i + batchSize < items.length) {
+			await delay(delayMs);
+		}
+	}
+	return results;
 };
 
 export const handleGetGNewsRequest = async (ticker, dateStart, dateEnd) => {
@@ -41,20 +56,35 @@ export const handleGetAllGNewsRequest = async (ticker) => {
 	}
 };
 
-export const handleUpdateGNewsRequest = async (ticker, dateStart, dateEnd) => {
+export const handleUpdateGNewsRequest = async (
+	ticker,
+	dateStart,
+	dateEnd,
+	limit = 10
+) => {
 	try {
-		const { data } = await makeGNewsRequest(ticker, 10, dateStart, dateEnd);
+		if (limit > 100) {
+			throw new ReturnError("Limit cannot exceed 100", 400);
+		}
+		const { data, status } = await makeGNewsRequest(
+			ticker,
+			limit,
+			dateStart,
+			dateEnd
+		);
 		const allArticles = data.articles;
+		// limit article content to 600 tokens
+		allArticles.forEach((article) => {
+			let tokens = encode(article.content);
+			tokens = tokens.slice(0, 600);
+			const decodedContent = decode(tokens);
+			article.content = decodedContent;
+		});
 
 		const newsChunks = chunkArray(allArticles, 5);
 
 		const gptResponses = await Promise.allSettled(
 			newsChunks.map(async (chunk) => {
-				chunk.map((article) => {
-					console.log(
-						`Gave GPT the article: ${article.title}, published at ${article.publishedAt}`
-					);
-				});
 				const gptResponse = await makeGPTRequest(
 					"gpt-4o-mini",
 					devPrompt,
@@ -68,36 +98,69 @@ export const handleUpdateGNewsRequest = async (ticker, dateStart, dateEnd) => {
 					),
 					generateNewsSentimentSummaryResponse()
 				);
-				console.log(`Chunk finished`);
 				return gptResponse.parsed["News Sentiment"];
 			})
 		);
 		await Promise.allSettled(
 			gptResponses.map(async (response) => {
 				if (response.status === "fulfilled") {
-					response.value.map(async (article) => {
-						const fullArticle = allArticles.find((a) => a.url === article.url);
-						const publishedAt = fullArticle.publishedAt;
-						const content = fullArticle.content;
-						console.log(article);
-						await query(
-							"INSERT INTO sentiment_data (title, news_type, url, summary, sentiment_score, relevance_score, datetime, text, fk_company) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (fk_company, url) DO NOTHING",
-							[
-								article.title,
-								"gnews",
-								article.url,
-								article.summaryOfArticleContent,
-								article.sentimentScore,
-								article.relevanceScore,
-								publishedAt,
-								content,
-								ticker,
-							]
-						);
-					});
+					response.value
+						.filter((article) => article.sentimentScore > 0.5)
+						.map(async (article) => {
+							const fullArticle = allArticles.find(
+								(a) => a.url === article.url
+							);
+							const publishedAt = fullArticle.publishedAt;
+							const content = fullArticle.content;
+							await query(
+								"INSERT INTO sentiment_data (title, news_type, url, summary, sentiment_score, relevance_score, datetime, text, fk_company) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (fk_company, url) DO NOTHING",
+								[
+									article.title,
+									"gnews",
+									article.url,
+									article.summaryOfArticleContent,
+									article.sentimentScore,
+									article.relevanceScore,
+									publishedAt,
+									content,
+									ticker,
+								]
+							);
+						});
 				}
 			})
 		);
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
+export const handleUpdateAllGNewsRequest = async (
+	dateStart,
+	dateEnd,
+	limit
+) => {
+	try {
+		const companies = await query("SELECT * FROM companies");
+		const updatePromises = companies.rows.map(
+			(company) => () =>
+				handleUpdateGNewsRequest(company.ticker, dateStart, dateEnd, limit)
+		);
+
+		const results = await processInBatches(updatePromises, 7, 1100, (fn) =>
+			fn()
+		);
+
+		const errors = results
+			.filter((result) => result.status === "rejected")
+			.map((result) => result.reason.message);
+
+		const uniqueErrors = [...new Set(errors)];
+
+		return {
+			message: "GNews update completed",
+			errors: uniqueErrors,
+		};
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}

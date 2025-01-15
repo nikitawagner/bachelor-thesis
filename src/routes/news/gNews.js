@@ -4,6 +4,7 @@ import {
 	handleDeleteGNewsRequest,
 	handleGetAllGNewsRequest,
 	handleGetGNewsRequest,
+	handleUpdateAllGNewsRequest,
 	handleUpdateGNewsRequest,
 } from "../../services/gNewsRequestHandler.js";
 
@@ -37,6 +38,21 @@ gNewsRouter.post("/:ticker/:dateStart/:dateEnd", async (req, res, next) => {
 		const { ticker, dateStart, dateEnd } = req.params;
 		await handleUpdateGNewsRequest(ticker, dateStart, dateEnd);
 		res.json({ message: "Success" });
+	} catch (error) {
+		next(error);
+	}
+});
+
+gNewsRouter.post("/all/:dateStart/:dateEnd/:limit", async (req, res, next) => {
+	try {
+		const { dateStart, dateEnd, limit } = req.params;
+		const response = await handleUpdateAllGNewsRequest(
+			dateStart,
+			dateEnd,
+			limit
+		);
+		console.log(response);
+		res.json({ message: "Success", response });
 	} catch (error) {
 		next(error);
 	}
