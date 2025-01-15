@@ -23,7 +23,7 @@ export const createNewsSentimentSummaryPrompt = (ticker, data) => {
 		First, Read Every provided article content and create a 3 sentence summary for every article that contains the most relevant information of that article regarding the stock: ${ticker}. Add another sentence that explains your decision.
 		Next, create a sentiment score from -1 to 1 where -1 is negative, 0 is neutral and 1 is positive and use 6 decimal places.
 		Then Also create a relevance score from 0 to 1 where 0 is not relevant and 1 is very relevant to the stock ${ticker}, also with 6 decimal places.
-		Exampe: sentiment: 0.785438, relevance: 0.987654. Only use the data that is provided in this prompt.
+		Example: sentiment: 0.785438, relevance: 0.987654. Only use the data that is provided in this prompt.
 		${data.map((item) => {
 			return `Title: ${item.title},
 			URL: ${item.url},
