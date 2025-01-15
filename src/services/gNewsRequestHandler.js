@@ -66,13 +66,10 @@ export const handleUpdateGNewsRequest = async (
 		if (limit > 100) {
 			throw new ReturnError("Limit cannot exceed 100", 400);
 		}
-		const { data, status } = await makeGNewsRequest(
-			ticker,
-			limit,
-			dateStart,
-			dateEnd
-		);
+		const { data } = await makeGNewsRequest(ticker, limit, dateStart, dateEnd);
 		const allArticles = data.articles;
+		console.log("Ticker: ", ticker);
+		console.log("Number Articles: ", allArticles.length);
 		// limit article content to 600 tokens
 		allArticles.forEach((article) => {
 			let tokens = encode(article.content);
@@ -85,6 +82,9 @@ export const handleUpdateGNewsRequest = async (
 
 		const gptResponses = await Promise.allSettled(
 			newsChunks.map(async (chunk) => {
+				chunk.map((article) =>
+					console.log("ChatGPT reading Article: ", article.title)
+				);
 				const gptResponse = await makeGPTRequest(
 					"gpt-4o-mini",
 					devPrompt,
@@ -105,11 +105,15 @@ export const handleUpdateGNewsRequest = async (
 			gptResponses.map(async (response) => {
 				if (response.status === "fulfilled") {
 					response.value
-						.filter((article) => article.sentimentScore > 0.5)
+						.filter((article) => article.relevanceScore > 0.5)
 						.map(async (article) => {
+							console.log("Inserting article: ", article.title);
 							const fullArticle = allArticles.find(
 								(a) => a.url === article.url
 							);
+							if (!fullArticle) {
+								return;
+							}
 							const publishedAt = fullArticle.publishedAt;
 							const content = fullArticle.content;
 							await query(
