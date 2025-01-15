@@ -33,15 +33,18 @@ gNewsRouter.get("/:ticker", async (req, res, next) => {
 });
 
 // get new news for the given ticker
-gNewsRouter.post("/:ticker/:dateStart/:dateEnd", async (req, res, next) => {
-	try {
-		const { ticker, dateStart, dateEnd } = req.params;
-		await handleUpdateGNewsRequest(ticker, dateStart, dateEnd);
-		res.json({ message: "Success" });
-	} catch (error) {
-		next(error);
+gNewsRouter.post(
+	"/:ticker/:dateStart/:dateEnd/:limit",
+	async (req, res, next) => {
+		try {
+			const { ticker, dateStart, dateEnd, limit } = req.params;
+			await handleUpdateGNewsRequest(ticker, dateStart, dateEnd, limit);
+			res.json({ message: "Success" });
+		} catch (error) {
+			next(error);
+		}
 	}
-});
+);
 
 gNewsRouter.post("/all/:dateStart/:dateEnd/:limit", async (req, res, next) => {
 	try {
