@@ -27,9 +27,10 @@ const makeGNewsRequest = async (symbol, max, dateStart, dateEnd) => {
 		if (endDate <= startDate) {
 			throw new ReturnError("End date must be after start date", 400);
 		}
+		const name = await getNameByTicker(symbol);
 		const { data, status, statusText } = await gNewsAPI.get("", {
 			params: {
-				q: `"$${symbol}" OR ${symbol}`,
+				q: `"$${symbol}" OR "${name}"`,
 				max: max,
 				lang: "en",
 				from: dateStart,

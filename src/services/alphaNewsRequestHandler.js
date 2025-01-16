@@ -5,9 +5,10 @@ import {
 	devPrompt,
 } from "../prompts/newsData.js";
 import generateNewsSentimentSummaryResponse from "../types/newsSentimentSummaryResponse.js";
-import { encode, decode } from "gpt-tokenizer/model/gpt-4o";
-import makeGNewsRequest from "./makeGNewsRequest.js";
+import extractNewsDataByTicker from "../helper/extractNewsDataByTicker.js";
+import makeAlphaNewsRequest from "./makeAlphaNewsRequest.js";
 import makeGPTRequest from "./makeGPTRequest.js";
+import getWebsiteContents from "./getWebsiteContents.js";
 
 const chunkArray = (array, chunkSize) => {
 	const chunks = [];
@@ -32,10 +33,10 @@ const processInBatches = async (items, batchSize, delayMs, processFunction) => {
 	return results;
 };
 
-export const handleGetGNewsRequest = async (ticker, dateStart, dateEnd) => {
+export const handleGetAlphaRequest = async (ticker, dateStart, dateEnd) => {
 	try {
 		const news = await query(
-			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3 AND news_type = 'gnews'",
+			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3 AND news_type = 'alphavantage'",
 			[ticker, dateStart, dateEnd]
 		);
 		return news;
@@ -44,10 +45,10 @@ export const handleGetGNewsRequest = async (ticker, dateStart, dateEnd) => {
 	}
 };
 
-export const handleGetAllGNewsRequest = async (ticker) => {
+export const handleGetAllAlphaRequest = async (ticker) => {
 	try {
 		const news = await query(
-			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND news_type = 'gnews'",
+			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND news_type = 'alphavantage'",
 			[ticker]
 		);
 		return news;
@@ -56,32 +57,37 @@ export const handleGetAllGNewsRequest = async (ticker) => {
 	}
 };
 
-export const handleUpdateGNewsRequest = async (
+export const handleUpdateAlphaRequest = async (
 	ticker,
 	dateStart,
 	dateEnd,
-	limit = 10
+	limit
 ) => {
 	try {
-		if (limit > 100) {
-			throw new ReturnError("Limit cannot exceed 100", 400);
+		if (limit > 1000) {
+			throw new ReturnError("Limit cannot exceed 1000", 400);
 		}
-		const { data } = await makeGNewsRequest(ticker, limit, dateStart, dateEnd);
-		const allArticles = data.articles;
-		console.log("Ticker: ", ticker);
-		console.log("Number Articles: ", allArticles.length);
-		// limit article content to 600 tokens
-		allArticles.forEach((article) => {
-			let tokens = encode(article.content);
-			tokens = tokens.slice(0, 400);
-			const decodedContent = decode(tokens);
-			article.content = decodedContent;
-		});
-
+		const alphaResponse = await makeAlphaNewsRequest(
+			ticker,
+			dateStart,
+			dateEnd,
+			"RELEVANCE",
+			limit
+		);
+		const alphaData = extractNewsDataByTicker(ticker, alphaResponse).slice(
+			0,
+			limit
+		);
+		console.log("Start Getting Website Contents");
+		const allArticles = await getWebsiteContents(alphaData, 400);
+		console.log("Finished Getting Website Contents");
 		const newsChunks = chunkArray(allArticles, 5);
 
-		const gptResponses = await Promise.allSettled(
-			newsChunks.map(async (chunk) => {
+		const gptResponses = await processInBatches(
+			newsChunks,
+			5,
+			60000,
+			async (chunk) => {
 				chunk.map((article) =>
 					console.log("ChatGPT reading Article: ", article.title)
 				);
@@ -99,8 +105,9 @@ export const handleUpdateGNewsRequest = async (
 					generateNewsSentimentSummaryResponse()
 				);
 				return gptResponse.parsed["News Sentiment"];
-			})
+			}
 		);
+		console.log(gptResponses);
 		await Promise.allSettled(
 			gptResponses.map(async (response) => {
 				if (response.status === "fulfilled") {
@@ -120,7 +127,7 @@ export const handleUpdateGNewsRequest = async (
 								"INSERT INTO sentiment_data (title, news_type, url, summary, sentiment_score, relevance_score, datetime, text, fk_company) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (fk_company, url) DO NOTHING",
 								[
 									article.title,
-									"gnews",
+									"alphavantage",
 									article.url,
 									article.summaryOfArticleContent,
 									article.sentimentScore,
@@ -134,35 +141,51 @@ export const handleUpdateGNewsRequest = async (
 				}
 			})
 		);
+		return {
+			message: "Alpha News update completed",
+		};
 	} catch (error) {
+		console.log(error);
 		throw new ReturnError(error, error.status);
 	}
 };
 
-export const handleUpdateAllGNewsRequest = async (
+export const handleUpdateAllAlphaRequest = async (
 	dateStart,
 	dateEnd,
 	limit
 ) => {
 	try {
 		const companies = await query("SELECT * FROM companies");
-		const updatePromises = companies.rows.map(
-			(company) => () =>
-				handleUpdateGNewsRequest(company.ticker, dateStart, dateEnd, limit)
-		);
 
-		const results = await processInBatches(updatePromises, 7, 1100, (fn) =>
-			fn()
-		);
+		const results = [];
+
+		for (const company of companies.rows) {
+			try {
+				await handleUpdateAlphaRequest(
+					company.ticker,
+					dateStart,
+					dateEnd,
+					limit
+				);
+				results.push({ status: "fulfilled", company: company.ticker });
+			} catch (error) {
+				results.push({
+					status: "rejected",
+					company: company.ticker,
+					reason: error.message,
+				});
+			}
+		}
 
 		const errors = results
 			.filter((result) => result.status === "rejected")
-			.map((result) => result.reason.message);
+			.map((result) => `Error for company ${result.company}: ${result.reason}`);
 
 		const uniqueErrors = [...new Set(errors)];
 
 		return {
-			message: "GNews update completed",
+			message: "Alpha News update completed",
 			errors: uniqueErrors,
 		};
 	} catch (error) {
@@ -170,10 +193,10 @@ export const handleUpdateAllGNewsRequest = async (
 	}
 };
 
-export const handleDeleteGNewsRequest = async (ticker, dateStart, dateEnd) => {
+export const handleDeleteAlphaRequest = async (ticker, dateStart, dateEnd) => {
 	try {
 		await query(
-			"DELETE FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3 AND news_type = 'gnews'",
+			"DELETE FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3 AND news_type = 'alphavantage'",
 			[ticker, dateStart, dateEnd]
 		);
 	} catch (error) {
@@ -181,10 +204,10 @@ export const handleDeleteGNewsRequest = async (ticker, dateStart, dateEnd) => {
 	}
 };
 
-export const handleDeleteAllGNewsRequest = async (ticker) => {
+export const handleDeleteAllAlphaRequest = async (ticker) => {
 	try {
 		await query(
-			"DELETE FROM sentiment_data WHERE fk_company = $1 AND news_type = 'gnews'",
+			"DELETE FROM sentiment_data WHERE fk_company = $1 AND news_type = 'alphavantage'",
 			[ticker]
 		);
 	} catch (error) {

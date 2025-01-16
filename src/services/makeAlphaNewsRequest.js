@@ -10,16 +10,11 @@ const makeAlphaNewsRequest = async (
 ) => {
 	try {
 		const tickerRegex = /^([A-Z]+)(,[A-Z]+)*$/;
-		const dateTimeRegex = /^\d{8}T\d{4}$/;
 		if (!tickerRegex.test(tickers)) {
 			throw new ReturnError(
 				"Invalid tickers format. Must Be IBM or IBM,AAPL etc.",
 				400
 			);
-		}
-
-		if (!dateTimeRegex.test(timeStart) || !dateTimeRegex.test(timeEnd)) {
-			throw new ReturnError("Invalid date format. Must be YYYYMMDDTHHMM", 400);
 		}
 
 		if (limit < 0 || limit > 1000) {
@@ -36,8 +31,17 @@ const makeAlphaNewsRequest = async (
 			params: {
 				function: "NEWS_SENTIMENT",
 				tickers: tickers,
-				time_from: timeStart,
-				time_to: timeEnd,
+				time_from: `${timeStart.slice(0, 4)}${timeStart.slice(
+					5,
+					7
+				)}${timeStart.slice(8, 10)}T${timeStart.slice(11, 13)}${timeStart.slice(
+					14,
+					16
+				)}`,
+				time_to: `${timeEnd.slice(0, 4)}${timeEnd.slice(5, 7)}${timeEnd.slice(
+					8,
+					10
+				)}T${timeEnd.slice(11, 13)}${timeEnd.slice(14, 16)}`,
 				sort: sort,
 				limit: limit,
 			},
@@ -50,8 +54,9 @@ const makeAlphaNewsRequest = async (
 		}
 		return { status: status, data: data, statusText: statusText };
 	} catch (error) {
+		console.log(tickers);
 		console.log(error);
-		throw new ReturnError("error", error.status);
+		throw new ReturnError(error, error.status);
 	}
 };
 

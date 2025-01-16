@@ -23,7 +23,6 @@ import generateNewsSentimentResponse from "../types/newsSentimentResponse.js";
 import getWebsiteContent from "./getWebsiteContent.js";
 import generateNewsSentimentSummaryResponse from "../types/newsSentimentSummaryResponse.js";
 import extractNewsDataByTicker from "../helper/extractNewsDataByTicker.js";
-import { write } from "fs";
 
 export const handlePriceDataRequest = async (
 	ticker,
