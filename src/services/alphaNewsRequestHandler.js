@@ -8,7 +8,7 @@ import generateNewsSentimentSummaryResponse from "../types/newsSentimentSummaryR
 import extractNewsDataByTicker from "../helper/extractNewsDataByTicker.js";
 import makeAlphaNewsRequest from "./makeAlphaNewsRequest.js";
 import makeGPTRequest from "./makeGPTRequest.js";
-import getWebsiteContent from "./getWebsiteContent.js";
+import getWebsiteContents from "./getWebsiteContents.js";
 
 const chunkArray = (array, chunkSize) => {
 	const chunks = [];
@@ -79,29 +79,15 @@ export const handleUpdateAlphaRequest = async (
 			limit
 		);
 		console.log("Start Getting Website Contents");
-		const allArticlesResults = await Promise.allSettled(
-			alphaData.map(async (article) => {
-				const content = await getWebsiteContent(article.url, 400);
-				return { ...article, content };
-			})
-		);
+		const allArticles = await getWebsiteContents(alphaData, 400);
 		console.log("Finished Getting Website Contents");
-		const allArticles = allArticlesResults
-			.filter((result) => result.status === "fulfilled")
-			.map((result) => result.value);
-		const uniqueErrors = [
-			...new Set(
-				allArticlesResults
-					.filter((result) => result.status === "rejected")
-					.map((result) => result.reason.message)
-			),
-		];
-		console.log("Ticker: ", ticker);
-		console.log("Number Articles: ", allArticles.length);
 		const newsChunks = chunkArray(allArticles, 5);
 
-		const gptResponses = await Promise.allSettled(
-			newsChunks.map(async (chunk) => {
+		const gptResponses = await processInBatches(
+			newsChunks,
+			5,
+			60000,
+			async (chunk) => {
 				chunk.map((article) =>
 					console.log("ChatGPT reading Article: ", article.title)
 				);
@@ -119,8 +105,9 @@ export const handleUpdateAlphaRequest = async (
 					generateNewsSentimentSummaryResponse()
 				);
 				return gptResponse.parsed["News Sentiment"];
-			})
+			}
 		);
+		console.log(gptResponses);
 		await Promise.allSettled(
 			gptResponses.map(async (response) => {
 				if (response.status === "fulfilled") {
@@ -156,9 +143,9 @@ export const handleUpdateAlphaRequest = async (
 		);
 		return {
 			message: "Alpha News update completed",
-			errors: uniqueErrors,
 		};
 	} catch (error) {
+		console.log(error);
 		throw new ReturnError(error, error.status);
 	}
 };
@@ -170,22 +157,26 @@ export const handleUpdateAllAlphaRequest = async (
 ) => {
 	try {
 		const companies = await query("SELECT * FROM companies");
-		console.log(companies);
-		const updatePromises = companies.rows.map((company) => {
-			return handleUpdateAlphaRequest(company.ticker, dateStart, dateEnd, limit)
-				.then((result) => ({
-					status: "fulfilled",
-					company: company.ticker,
-					result,
-				}))
-				.catch((error) => ({
+
+		const results = [];
+
+		for (const company of companies.rows) {
+			try {
+				await handleUpdateAlphaRequest(
+					company.ticker,
+					dateStart,
+					dateEnd,
+					limit
+				);
+				results.push({ status: "fulfilled", company: company.ticker });
+			} catch (error) {
+				results.push({
 					status: "rejected",
 					company: company.ticker,
 					reason: error.message,
-				}));
-		});
-
-		const results = await Promise.allSettled(updatePromises);
+				});
+			}
+		}
 
 		const errors = results
 			.filter((result) => result.status === "rejected")
@@ -194,7 +185,7 @@ export const handleUpdateAllAlphaRequest = async (
 		const uniqueErrors = [...new Set(errors)];
 
 		return {
-			message: "Alpha update completed",
+			message: "Alpha News update completed",
 			errors: uniqueErrors,
 		};
 	} catch (error) {
