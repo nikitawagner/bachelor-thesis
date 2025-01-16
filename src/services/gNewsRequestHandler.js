@@ -73,7 +73,7 @@ export const handleUpdateGNewsRequest = async (
 		// limit article content to 600 tokens
 		allArticles.forEach((article) => {
 			let tokens = encode(article.content);
-			tokens = tokens.slice(0, 600);
+			tokens = tokens.slice(0, 400);
 			const decodedContent = decode(tokens);
 			article.content = decodedContent;
 		});
