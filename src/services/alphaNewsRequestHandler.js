@@ -79,7 +79,13 @@ export const handleUpdateAlphaRequest = async (
 			limit
 		);
 		console.log("Start Getting Website Contents");
-		const allArticles = await getWebsiteContents(alphaData, 400);
+		console.log(alphaData.length);
+		console.log(alphaData);
+		const allArticles = await getWebsiteContents(
+			alphaData.filter((article) => article.relvanceScore > 0.4),
+			400
+		);
+		console.log(allArticles.length);
 		console.log("Finished Getting Website Contents");
 		const newsChunks = chunkArray(allArticles, 5);
 
