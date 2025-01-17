@@ -170,6 +170,61 @@ export const handleUpdateAllGNewsRequest = async (
 	}
 };
 
+export const handleUpdateAllGNewsRequestForYear = async (inputYear, limit) => {
+	try {
+		console.log("Year:", inputYear);
+		const year = parseInt(inputYear, 10);
+		if (isNaN(year)) {
+			throw new Error(`Invalid year: ${inputYear}`);
+		}
+
+		// Construct valid dates
+		const startOfYear = new Date(`${year}-01-01T00:00:00Z`);
+		const endOfYear = new Date(`${year}-12-31T23:59:59Z`);
+
+		// Sanity-check
+		console.log("Start of Year:", startOfYear);
+		console.log("End of Year:  ", endOfYear);
+
+		// Proceed with your existing logic
+		const companies = await query("SELECT * FROM companies");
+
+		const updatePromises = [];
+		for (
+			let day = new Date(startOfYear);
+			day <= endOfYear;
+			day.setDate(day.getDate() + 1)
+		) {
+			const dateStr = day.toISOString().split("T")[0];
+			const dateStart = `${dateStr}T00:00:00Z`;
+			const dateEnd = `${dateStr}T23:59:59Z`;
+
+			for (const company of companies.rows) {
+				updatePromises.push(() =>
+					handleUpdateGNewsRequest(company.ticker, dateStart, dateEnd, limit)
+				);
+			}
+		}
+
+		const results = await processInBatches(updatePromises, 7, 1100, (fn) =>
+			fn()
+		);
+
+		const errors = results
+			.filter((r) => r.status === "rejected")
+			.map((r) => r.reason?.message || r.reason);
+
+		const uniqueErrors = [...new Set(errors)];
+
+		return {
+			message: "GNews update completed",
+			errors: uniqueErrors,
+		};
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
 export const handleDeleteGNewsRequest = async (ticker, dateStart, dateEnd) => {
 	try {
 		await query(
