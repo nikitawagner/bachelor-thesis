@@ -109,3 +109,58 @@ export const handleAddTechnicalRequest = async (
 		throw new ReturnError(error, error.status);
 	}
 };
+
+export const handleGetTechnicalDataRequest = async (
+	ticker,
+	dateStart,
+	dateEnd,
+	functionType
+) => {
+	try {
+		console.log(ticker);
+		const queryText = `
+			WITH formatted_data AS (
+				SELECT
+					td.datetime AS date,
+					JSON_OBJECT_AGG(DISTINCT tdt.sub_type, tdsv.value) AS values
+				FROM
+					technical_data td
+				JOIN
+					technical_data_subtypes_values tdsv
+					ON td.id = tdsv.fk_technical_data_entry
+				JOIN
+					technical_data_types_subtypes tdt
+					ON tdsv.fk_subtype = tdt.id
+				WHERE
+					td.datetime BETWEEN $1 AND $2
+					AND td.fk_company = (
+						SELECT c.ticker FROM companies c WHERE c.ticker = $3
+					)
+					AND td.fk_type = (
+						SELECT tdtp.short FROM technical_data_types tdtp WHERE tdtp.short = $4
+					)
+				GROUP BY
+					td.datetime
+				ORDER BY
+					td.datetime
+			)
+			SELECT
+				JSON_AGG(
+					JSON_BUILD_OBJECT(
+						'date', date,
+						'values', values
+					)
+				) AS result
+			FROM
+				formatted_data;
+			`;
+		const response = await query(queryText, [
+			dateStart,
+			dateEnd,
+			ticker,
+			functionType,
+		]);
+		console.log(response.rows[0]);
+		return response.rows[0];
+	} catch (error) {}
+};
