@@ -1,4 +1,5 @@
 import { handleGetNewsByTickerAndDate } from "../services/handleNewsRequest.js";
+import { getAllPricesByTimespan } from "../services/priceRequestHandler.js";
 import { handleGetTechnicalDataRequest } from "../services/technicalRequestHandler.js";
 
 const callFunction = async (name, args) => {
@@ -42,6 +43,20 @@ const callFunction = async (name, args) => {
 		if (name === "get_news_data") {
 			const response = await handleGetNewsByTickerAndDate(
 				args.ticker,
+				args.dateStart,
+				args.dateEnd
+			);
+			return {
+				status: "SUCCESS",
+				message: "Function executed successfully",
+				data: response,
+			};
+		}
+		if (name === "get_price_data") {
+			const response = await getAllPricesByTimespan(
+				args.ticker,
+				null,
+				"TIME_SERIES_DAILY",
 				args.dateStart,
 				args.dateEnd
 			);
