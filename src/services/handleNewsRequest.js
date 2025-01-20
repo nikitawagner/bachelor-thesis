@@ -19,11 +19,19 @@ export const handleGetNewsByTickerAndDate = async (
 	dateEnd
 ) => {
 	try {
-		const response = await query(
-			"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime BETWEEN $2 AND $3",
-			[ticker, dateStart, dateEnd]
-		);
-		return response.rows;
+		if (dateStart === dateEnd) {
+			const response = await query(
+				"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime::DATE = $2",
+				[ticker, dateStart]
+			);
+			return response.rows;
+		} else {
+			const response = await query(
+				"SELECT * FROM sentiment_data WHERE fk_company = $1 AND datetime >= $2 AND datetime <=$3",
+				[ticker, dateStart, dateEnd]
+			);
+			return response.rows;
+		}
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}
