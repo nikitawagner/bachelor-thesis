@@ -11,22 +11,6 @@ const callFunction = async (name, args) => {
 				data: null,
 			};
 		}
-		if (name === "get_weather") {
-			console.log(name, args);
-			return {
-				status: "SUCCESS",
-				message: "Function executed successfully",
-				data: { temperature: 25, city: args.city_name },
-			};
-		}
-		if (name === "get_condition") {
-			console.log(name, args);
-			return {
-				status: "SUCCESS",
-				message: "Function executed successfully",
-				data: { conditon: "Sunny", city: args.city_name },
-			};
-		}
 		if (name === "get_technical_data") {
 			const response = await handleGetTechnicalDataRequest(
 				args.ticker,
