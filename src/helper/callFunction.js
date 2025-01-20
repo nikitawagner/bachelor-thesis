@@ -1,3 +1,4 @@
+import { query } from "../db/index.js";
 import { handleGetNewsByTickerAndDate } from "../services/handleNewsRequest.js";
 import { getAllPricesByTimespan } from "../services/priceRequestHandler.js";
 import { handleGetTechnicalDataRequest } from "../services/technicalRequestHandler.js";
@@ -12,6 +13,11 @@ const callFunction = async (name, args) => {
 			};
 		}
 		if (name === "get_technical_data") {
+			await query(
+				"INSERT INTO technical_data_used (typem timestamp) VALUES ($1, $2)",
+				args.functionType,
+				new Date()
+			);
 			const response = await handleGetTechnicalDataRequest(
 				args.ticker,
 				args.dateStart,
