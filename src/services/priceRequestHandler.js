@@ -106,9 +106,17 @@ export const getAllPricesByTicker = async (ticker, interval, timeFrame) => {
 				400
 			);
 		}
-		const queryText =
-			"SELECT * FROM prices WHERE fk_company = $1 and price_interval = $2 and price_time_frame = $3";
-		const res = await query(queryText, [ticker, interval, timeFrame]);
+		let res;
+		if (interval) {
+			const queryText =
+				"SELECT * FROM prices WHERE fk_company = $1 and price_interval = $2 and price_time_frame = $3";
+			res = await query(queryText, [ticker, interval, timeFrame]);
+		} else {
+			const queryText =
+				"SELECT * FROM prices WHERE fk_company = $1 and price_interval IS NULL and price_time_frame = $2";
+			res = await query(queryText, [ticker, timeFrame]);
+		}
+
 		return res.rows;
 	} catch (error) {
 		throw new ReturnError(error, 500);
@@ -143,24 +151,43 @@ export const getAllPricesByTimespan = async (
 		}
 		const startDate = new Date(dateStart);
 		const endDate = new Date(dateEnd);
-		if (endDate <= startDate) {
+		if (endDate < startDate) {
 			throw new ReturnError("End date must be after start date", 400);
 		}
-		const queryText = `
+		let queryText = interval
+			? `
             SELECT * FROM prices
             WHERE fk_company = $1
             AND price_interval = $2
             AND price_time_frame = $3
             AND datetime >= $4
             AND datetime <= $5
+        `
+			: `
+            SELECT * FROM prices
+            WHERE fk_company = $1
+            AND price_interval IS NULL
+            AND price_time_frame = $2
+            AND datetime >= $3
+            AND datetime <= $4
         `;
-		const res = await query(queryText, [
-			ticker,
-			interval,
-			timeFrame,
-			startDate.toISOString(),
-			endDate.toISOString(),
-		]);
+		let res;
+		if (interval) {
+			res = await query(queryText, [
+				ticker,
+				interval,
+				timeFrame,
+				startDate.toISOString(),
+				endDate.toISOString(),
+			]);
+		} else {
+			res = await query(queryText, [
+				ticker,
+				timeFrame,
+				startDate.toISOString(),
+				endDate.toISOString(),
+			]);
+		}
 		return res.rows;
 	} catch (error) {
 		console.log(error);
