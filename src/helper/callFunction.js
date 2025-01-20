@@ -13,10 +13,10 @@ const callFunction = async (name, args) => {
 			};
 		}
 		if (name === "get_technical_data") {
+			console.log(name, args);
 			await query(
-				"INSERT INTO technical_data_used (typem timestamp) VALUES ($1, $2)",
-				args.functionType,
-				new Date()
+				"INSERT INTO technical_data_used (type, datetime) VALUES ($1, $2)",
+				[args.functionType, new Date()]
 			);
 			const response = await handleGetTechnicalDataRequest(
 				args.ticker,
@@ -57,6 +57,7 @@ const callFunction = async (name, args) => {
 			};
 		}
 	} catch (error) {
+		console.log(error);
 		return {
 			status: "ERROR",
 			message: "Error calling function. Internal error",
