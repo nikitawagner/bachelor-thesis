@@ -163,7 +163,7 @@ export const handleGetTechnicalDataRequest = async (
 			functionType,
 		]);
 		console.log(response);
-		return response.rows[0];
+		return response.rows[0].result;
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}
