@@ -13,7 +13,7 @@ const callFunction = async (name, args) => {
 			};
 		}
 		if (name === "get_technical_data") {
-			console.log(name, args);
+			console.log(`called get_technical_data with args: ${args}`);
 			await query(
 				"INSERT INTO technical_data_used (type, datetime) VALUES ($1, $2)",
 				[args.functionType, new Date()]
@@ -31,6 +31,7 @@ const callFunction = async (name, args) => {
 			};
 		}
 		if (name === "get_news_data") {
+			console.log(`called get_news_data with args: ${args}`);
 			const response = await handleGetNewsByTickerAndDate(
 				args.ticker,
 				args.dateStart,
@@ -43,6 +44,7 @@ const callFunction = async (name, args) => {
 			};
 		}
 		if (name === "get_price_data") {
+			console.log(`called get_price_data with args: ${args}`);
 			const response = await getAllPricesByTimespan(
 				args.ticker,
 				null,
