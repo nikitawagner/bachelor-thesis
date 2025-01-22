@@ -17,7 +17,6 @@ const makeGPTToolsRequest = async (
 	currentDate
 ) => {
 	console.log("Start Making GPT Request for : ", ticker);
-	const models = ["gpt-4o", "gpt-4o-mini", "o1", "o1-mini", "gpt-3.5 turbo"];
 	const providedIds = [];
 	let messagesArray = [
 		{ role: "developer", content: [{ type: "text", text: devPrompt }] },
@@ -26,7 +25,6 @@ const makeGPTToolsRequest = async (
 	let retries = 0;
 
 	while (retries < 3) {
-		// Total 3 attempts (0, 1, 2)
 		try {
 			const response = await openai.beta.chat.completions.parse({
 				model: model,
@@ -36,7 +34,6 @@ const makeGPTToolsRequest = async (
 				max_tokens: 16384,
 				tools: retries < 2 ? tools : null, // Disable tools on 3rd attempt (retries=2)
 			});
-
 			const choice = response.choices[0];
 			const finishReason = choice.finish_reason;
 
@@ -62,14 +59,12 @@ const makeGPTToolsRequest = async (
 					currentDate,
 					ticker
 				);
-			} else if (finishReason === "tool_calls") {
-				messagesArray.push(choice.message);
-
-				// Process tool calls
+			}
+			messagesArray.push(choice.message);
+			if (finishReason === "tool_calls") {
 				for (const toolCall of choice.message.tool_calls) {
 					const args = JSON.parse(toolCall.function.arguments);
 					const result = await callFunction(toolCall.function.name, args);
-
 					result.data?.forEach((data) => {
 						if (data.id) providedIds.push(data.id);
 					});
