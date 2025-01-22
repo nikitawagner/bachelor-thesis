@@ -8,6 +8,7 @@ import {
 } from "../prompts/sentimentalAnalysis.js";
 
 import generateReasoningResponse from "../types/reasoningResponse.js";
+import generateWeekdaysArray from "../helper/generateWeekdaysArray.js";
 
 const chunkArray = (array, chunkSize) => {
 	const chunks = [];
@@ -247,6 +248,19 @@ export const handlePostAllSentimentRequest = async (date) => {
 			)
 		);
 		return responses;
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
+export const handlePostAllSentimentForWholeYearRequest = async (year) => {
+	try {
+		const results = [];
+		const weekdays = generateWeekdaysArray(year);
+		for (const weekday of weekdays) {
+			const result = await handlePostAllSentimentRequest(weekday);
+			results.push(result);
+		}
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}

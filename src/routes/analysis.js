@@ -2,6 +2,7 @@ import express from "express";
 import {
 	handleGetAllSentimentalAnalysisRequest,
 	handleGetSentimentAnalysisRequest,
+	handlePostAllSentimentForWholeYearRequest,
 	handlePostAllSentimentRequest,
 	handlePostSingleSentimentRequest,
 } from "../services/handleAnalysisRequests.js";
@@ -77,6 +78,16 @@ analysisRouter.get(
 		}
 	}
 );
+
+analysisRouter.post("/sentiment/full/:year", async (req, res, next) => {
+	try {
+		const { year } = req.params;
+		const response = await handlePostAllSentimentForWholeYearRequest(year);
+		res.json({ message: "Success", response });
+	} catch (error) {
+		next(error);
+	}
+});
 
 analysisRouter.post("/sentiment/all/:date", async (req, res, next) => {
 	try {
