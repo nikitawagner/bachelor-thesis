@@ -4,7 +4,7 @@ const generateReasoningResponse = () => {
 	const reasoningDataSchema = z
 		.object({
 			id: z
-				.string()
+				.number()
 				.describe(
 					"The id of the returned data from the functions that you use for the reasoning. For example if the get_price_data function returns items with id 100, 499 or 2 and you use the data with id 499 for the reasoning, this id should be put into here"
 				),
@@ -32,8 +32,10 @@ const generateReasoningResponse = () => {
 			.string()
 			.describe("A three sentence summary of the reasoning behind the action"),
 		action: z
-			.enum(["LONG", "SHORT", "CLOSE"])
-			.describe("The action to take based on the reasoning"),
+			.enum(["LONG", "SHORT", "HOLD"])
+			.describe(
+				"The action to take based on the reasoning. Long if buy, short if sell, hold if do nothing"
+			),
 	});
 	return responseFormat;
 };
