@@ -9,6 +9,29 @@ import {
 
 import generateReasoningResponse from "../types/reasoningResponse.js";
 
+const chunkArray = (array, chunkSize) => {
+	const chunks = [];
+	for (let i = 0; i < array.length; i += chunkSize) {
+		chunks.push(array.slice(i, i + chunkSize));
+	}
+	return chunks;
+};
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const processInBatches = async (items, batchSize, delayMs, processFunction) => {
+	const results = [];
+	for (let i = 0; i < items.length; i += batchSize) {
+		const batch = items.slice(i, i + batchSize);
+		const batchResults = await Promise.allSettled(batch.map(processFunction));
+		results.push(...batchResults);
+		if (i + batchSize < items.length) {
+			await delay(delayMs);
+		}
+	}
+	return results;
+};
+
 export const handlePostSingleSentimentRequest = async (ticker, date) => {
 	try {
 		const response = await makeGPTToolsRequest(
@@ -16,7 +39,9 @@ export const handlePostSingleSentimentRequest = async (ticker, date) => {
 			devPrompt,
 			createSentimentalAnalysisPrompt(ticker, date),
 			generateReasoningResponse(),
-			sentimentalTools
+			sentimentalTools,
+			ticker,
+			date
 		);
 		return response.rows;
 	} catch (error) {
@@ -209,17 +234,19 @@ export const handleGetAllSentimentalAnalysisRequest = async (
 export const handlePostAllSentimentRequest = async (date) => {
 	try {
 		const { rows: companies } = await query("SELECT * FROM companies");
-		const responses = await Promise.allSettled(
-			companies.map((company) => {
-				return makeGPTToolsRequest(
-					"gpt-4o-mini",
-					devPrompt,
-					createSentimentalAnalysisPrompt(company.ticker, date),
-					generateReasoningResponse(),
-					sentimentalTools
-				);
-			})
+
+		const responses = await processInBatches(companies, 3, 1100, (company) =>
+			makeGPTToolsRequest(
+				"gpt-4o-mini",
+				devPrompt,
+				createSentimentalAnalysisPrompt(company.ticker, date),
+				generateReasoningResponse(),
+				sentimentalTools,
+				company.ticker,
+				date
+			)
 		);
+
 		return responses;
 	} catch (error) {
 		throw new ReturnError(error, error.status);
