@@ -43,7 +43,7 @@ export const handlePostSingleSentimentRequest = async (ticker, date) => {
 			ticker,
 			date
 		);
-		return response.rows;
+		return response;
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}
@@ -246,7 +246,6 @@ export const handlePostAllSentimentRequest = async (date) => {
 				date
 			)
 		);
-
 		return responses;
 	} catch (error) {
 		throw new ReturnError(error, error.status);
