@@ -3,7 +3,7 @@ import { handleGetNewsByTickerAndDate } from "../services/handleNewsRequest.js";
 import { getAllPricesByTimespan } from "../services/priceRequestHandler.js";
 import { handleGetTechnicalDataRequest } from "../services/technicalRequestHandler.js";
 
-const callFunction = async (name, args) => {
+const callFunction = async (name, args, currentDate, analysisType) => {
 	try {
 		if (!name) {
 			return {
@@ -34,6 +34,24 @@ const callFunction = async (name, args) => {
 		}
 		if (name === "get_news_data") {
 			console.log(`called get_news_data with args: ${JSON.stringify(args)}`);
+
+			if (analysisType === "sentiment") {
+				// Enforce dateEnd to be currentDate for sentiment analysis
+				args.dateEnd = currentDate;
+
+				// Calculate the day before currentDate
+				const currentDateObj = new Date(currentDate);
+				currentDateObj.setDate(currentDateObj.getDate() - 1);
+				const dayBefore = currentDateObj.toISOString().split("T")[0];
+
+				// Adjust dateStart to be within [dayBefore, currentDate]
+				if (args.dateStart < dayBefore) {
+					args.dateStart = dayBefore;
+				} else if (args.dateStart > args.dateEnd) {
+					args.dateStart = args.dateEnd;
+				}
+			}
+			console.log(`changed params to: ${JSON.stringify(args)}`);
 			const response = await handleGetNewsByTickerAndDate(
 				args.ticker,
 				args.dateStart,
