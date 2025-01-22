@@ -2,6 +2,7 @@ import express from "express";
 import {
 	handleGetAllSentimentalAnalysisRequest,
 	handleGetSentimentAnalysisRequest,
+	handlePostAllSentimentRequest,
 	handlePostSingleSentimentRequest,
 } from "../services/handleAnalysisRequests.js";
 
@@ -77,15 +78,15 @@ analysisRouter.get(
 	}
 );
 
-// analysisRouter.post("/sentiment/all/:date", async (req, res, next) => {
-// 	try {
-// 		const { ticker, date } = req.params;
-// 		const response = await handlePostSingleSentimentRequest(ticker, date);
-// 		res.json({ message: "Success", response });
-// 	} catch (error) {
-// 		next(error);
-// 	}
-// });
+analysisRouter.post("/sentiment/all/:date", async (req, res, next) => {
+	try {
+		const { date } = req.params;
+		const response = await handlePostAllSentimentRequest(date);
+		res.json({ message: "Success", response });
+	} catch (error) {
+		next(error);
+	}
+});
 
 analysisRouter.post("/sentiment/:ticker/:date", async (req, res, next) => {
 	try {
