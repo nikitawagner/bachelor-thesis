@@ -39,10 +39,22 @@ const callFunction = async (name, args) => {
 				args.dateStart,
 				args.dateEnd
 			);
+			const formattedResponse = response
+				.sort((a, b) => b.relevance_score - a.relevance_score)
+				.slice(0, 10)
+				.map((item) => ({
+					id: item.id,
+					title: item.title,
+					summary: item.summary,
+					sentiment_score: item.sentiment_score,
+					relevance_score: item.relevance_score,
+					datetime: item.datetime,
+					fk_company: item.fk_company,
+				}));
 			return {
 				status: "SUCCESS",
 				message: "Function executed successfully",
-				data: response,
+				data: formattedResponse,
 			};
 		}
 		if (name === "get_price_data") {
