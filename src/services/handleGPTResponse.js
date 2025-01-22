@@ -61,7 +61,7 @@ const handleGPTResponse = async (rawResponse, price, datetime, ticker) => {
 
 		await query("COMMIT");
 
-		return { success: true, actionId, ticker, test: "123" };
+		return { success: true, actionId, ticker };
 	} catch (error) {
 		await query("ROLLBACK");
 		console.error("Database insertion failed:", error);
