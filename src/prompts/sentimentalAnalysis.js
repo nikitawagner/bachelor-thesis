@@ -6,6 +6,6 @@ export const devPrompt = `You are a financial expert with experience in stock pr
     This data should be used for technical analysis. Also a combination of different data could and most of the time should be used for better results`;
 
 export const createSentimentalAnalysisPrompt = (symbol, currentDate) => {
-	return `The current date is ${currentDate}. You are supposed to tell if the stock ${symbol} is a LONG or SHORT for the current date based on the news articles of today and the past. 
-    When the overall sentiment of the news articles is positive enough, you should suggest a LONG position. When the overall sentiment of the news articles is negative enough, you should suggest a SHORT position.`;
+	return `The current date (todays date) is ${currentDate}. You are supposed to tell if the stock ${symbol} is a LONG or SHORT for the current date based on the news articles of today and yesterday. 
+    When the overall sentiment of the news articles is positive enough, you should suggest a LONG position. When the overall sentiment of the news articles is negative enough, you should suggest a SHORT position. Else HOLD.`;
 };
