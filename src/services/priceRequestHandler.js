@@ -11,7 +11,6 @@ import { getAllCompanies } from "./companyRequestHandler.js";
 export const getIncludedTickers = async (interval, timeFrame) => {
 	try {
 		if (!validTimeFrame(timeFrame)) {
-			console.log(validTimeFrame(timeFrame));
 			throw new ReturnError(
 				"Invalid time frame. Must be one of TIME_SERIES_INTRADAY, TIME_SERIES_DAILY, TIME_SERIES_WEEKLY, TIME_SERIES_MONTHLY",
 				400
@@ -50,7 +49,6 @@ export const getIncludedTickers = async (interval, timeFrame) => {
 export const getExcludedTickers = async (interval, timeFrame) => {
 	try {
 		if (!validTimeFrame(timeFrame)) {
-			console.log(validTimeFrame(timeFrame));
 			throw new ReturnError(
 				"Invalid time frame. Must be one of TIME_SERIES_INTRADAY, TIME_SERIES_DAILY, TIME_SERIES_WEEKLY, TIME_SERIES_MONTHLY",
 				400
@@ -94,7 +92,6 @@ export const getAllPricesByTicker = async (ticker, interval, timeFrame) => {
 			throw new ReturnError("Ticker is required", 400);
 		}
 		if (!validTimeFrame(timeFrame)) {
-			console.log(validTimeFrame(timeFrame));
 			throw new ReturnError(
 				"Invalid time frame. Must be one of TIME_SERIES_INTRADAY, TIME_SERIES_DAILY, TIME_SERIES_WEEKLY, TIME_SERIES_MONTHLY",
 				400
@@ -222,7 +219,6 @@ export const updatePricesForTicker = async (ticker, interval, timeFrame) => {
 		const timeSeriesKey = Object.keys(prices).find((key) =>
 			key.toLowerCase().includes("time series")
 		);
-		console.log(timeSeriesKey);
 		if (!timeSeriesKey) {
 			throw new ReturnError("Time series data not found", 500);
 		}

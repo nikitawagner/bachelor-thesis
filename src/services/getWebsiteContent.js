@@ -21,7 +21,6 @@ const getWebsiteContent = async (url, tokenCount) => {
 		const decodedText = decode(tokens);
 		return decodedText;
 	} catch (error) {
-		console.log(url);
 		console.error("Error fetching website content:", error);
 		throw new ReturnError("Failed to fetch website content", 500);
 	}
