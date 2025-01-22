@@ -54,8 +54,6 @@ const makeAlphaNewsRequest = async (
 		}
 		return { status: status, data: data, statusText: statusText };
 	} catch (error) {
-		console.log(tickers);
-		console.log(error);
 		throw new ReturnError(error, error.status);
 	}
 };

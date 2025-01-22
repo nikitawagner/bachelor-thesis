@@ -3,6 +3,8 @@ import "dotenv/config";
 import { zodResponseFormat } from "openai/helpers/zod.mjs";
 import ReturnError from "../helper/ReturnError.js";
 import callFunction from "../helper/callFunction.js";
+import handleGPTResponse from "./handleGPTResponse.js";
+import { getAllPricesByTimespan } from "./priceRequestHandler.js";
 const openai = new OpenAI();
 
 const makeGPTToolsRequest = async (
@@ -10,19 +12,13 @@ const makeGPTToolsRequest = async (
 	devPrompt,
 	userPrompt,
 	responseFormat,
-	tools
+	tools,
+	ticker,
+	currentDate
 ) => {
-	const models = ["gpt-4o", "gpt-4o-mini", "o1", "o1-mini", "gpt-3.5 turbo"];
-	if (models.indexOf(model) === -1) {
-		throw new ReturnError(
-			"Invalid model. Must be one of gpt-4o, gpt-4o-mini, o1, o1-mini, gpt-3.5 turbo",
-			400
-		);
-	}
-	if (userPrompt.length === 0) {
-		throw new ReturnError("User prompt cannot be empty", 400);
-	}
-	const messagesArray = [
+	console.log("Start Making GPT Request for : ", ticker);
+	const providedIds = [];
+	let messagesArray = [
 		{ role: "developer", content: [{ type: "text", text: devPrompt }] },
 		{ role: "user", content: [{ type: "text", text: userPrompt }] },
 	];
@@ -30,44 +26,76 @@ const makeGPTToolsRequest = async (
 
 	while (retries < 3) {
 		try {
-			console.log(messagesArray);
 			const response = await openai.beta.chat.completions.parse({
 				model: model,
 				messages: messagesArray,
 				response_format: zodResponseFormat(responseFormat, "prompt"),
 				temperature: 0,
 				max_tokens: 16384,
-				tools: tools,
+				tools: retries < 2 ? tools : null, // Disable tools on 3rd attempt (retries=2)
 			});
-
 			const choice = response.choices[0];
-			console.log(choice);
 			const finishReason = choice.finish_reason;
-			const message = choice.message;
 
 			if (finishReason === "stop") {
-				return message;
-			}
-			messagesArray.push(message);
-			if (finishReason === "tool_calls") {
-				for (const toolCall of response.choices[0].message.tool_calls) {
-					const args = JSON.parse(toolCall.function.arguments);
+				const priceResponse = await getAllPricesByTimespan(
+					ticker,
+					null,
+					"TIME_SERIES_DAILY",
+					currentDate,
+					currentDate
+				);
+				if (priceResponse.length === 0) {
+					throw new ReturnError(`PriceId for ticker: ${ticker} not found`, 404);
+				}
+				const priceId = priceResponse.filter(
+					(item) => item.price_type === "open"
+				)[0].id;
 
+				return await handleGPTResponse(
+					// Return final response
+					choice.message,
+					priceId,
+					currentDate,
+					ticker
+				);
+			}
+			messagesArray.push(choice.message);
+			if (finishReason === "tool_calls") {
+				for (const toolCall of choice.message.tool_calls) {
+					const args = JSON.parse(toolCall.function.arguments);
 					const result = await callFunction(toolCall.function.name, args);
+					result.data?.forEach((data) => {
+						if (data.id) providedIds.push(data.id);
+					});
+
 					messagesArray.push({
 						role: "tool",
 						tool_call_id: toolCall.id,
 						content: JSON.stringify(result),
 					});
-					console.log(JSON.stringify(result));
 				}
-				retries += 1;
+
+				retries += 1; // Count tool call attempts
+			} else {
+				throw new ReturnError(`Unexpected finish reason: ${finishReason}`, 500);
 			}
 		} catch (error) {
-			console.log(error);
-			throw new ReturnError("error", error.status);
+			console.error(`Attempt ${retries + 1} failed:`, error);
+			if (retries === 2)
+				throw new ReturnError(`Failed all Retries for ticker: ${ticker}`, 500); // Final attempt failed
+			if (error.status !== 404) {
+				retries += 1;
+			} else {
+				throw new ReturnError(`Data not found for ticker: ${ticker}`, 404);
+			}
 		}
 	}
+
+	throw new ReturnError(
+		"Maximum attempts (3) reached without successful completion",
+		500
+	);
 };
 
 export default makeGPTToolsRequest;

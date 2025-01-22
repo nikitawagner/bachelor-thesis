@@ -43,7 +43,6 @@ const makeAlphaStandardDeviation = async (symbols, range, interval) => {
 				CALCULATIONS: "STDDEV(annualized=True)",
 			},
 		});
-		console.log(data);
 		return { status: status, data: data, statusText: statusText };
 	} catch (error) {
 		console.log(error);

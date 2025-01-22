@@ -42,7 +42,6 @@ alphaNewsRouter.post(
 	"/all/:dateStart/:dateEnd/:limit",
 	async (req, res, next) => {
 		try {
-			console.log("in all");
 			const { dateStart, dateEnd, limit } = req.params;
 			const response = await handleUpdateAllAlphaRequest(
 				dateStart,

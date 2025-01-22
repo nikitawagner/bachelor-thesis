@@ -37,7 +37,6 @@ gNewsRouter.post("/all/:year/:limit", async (req, res, next) => {
 	try {
 		const { year, limit } = req.params;
 		const response = await handleUpdateAllGNewsRequestForYear(year, limit);
-		console.log(response);
 		res.json({ message: "Success", response });
 	} catch (error) {
 		next(error);
@@ -53,7 +52,6 @@ gNewsRouter.post("/all/:dateStart/:dateEnd/:limit", async (req, res, next) => {
 			dateEnd,
 			limit
 		);
-		console.log(response);
 		res.json({ message: "Success", response });
 	} catch (error) {
 		next(error);

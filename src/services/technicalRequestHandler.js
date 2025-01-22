@@ -121,6 +121,7 @@ export const handleGetTechnicalDataRequest = async (
 		const queryText = `
 			WITH formatted_data AS (
 				SELECT
+					td.id as id,
 					td.datetime AS date,
 					JSON_OBJECT_AGG(DISTINCT tdt.sub_type, tdsv.value) AS values
 				FROM
@@ -140,13 +141,14 @@ export const handleGetTechnicalDataRequest = async (
 						SELECT tdtp.short FROM technical_data_types tdtp WHERE tdtp.short = $4
 					)
 				GROUP BY
-					td.datetime
+					td.id, td.datetime
 				ORDER BY
 					td.datetime
 			)
 			SELECT
 				JSON_AGG(
 					JSON_BUILD_OBJECT(
+						'id', id,
 						'date', date,
 						'values', values
 					)
@@ -160,7 +162,9 @@ export const handleGetTechnicalDataRequest = async (
 			ticker,
 			functionType,
 		]);
-		console.log(response.rows[0]);
-		return response.rows[0];
-	} catch (error) {}
+		console.log(response);
+		return response.rows[0].result;
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
 };

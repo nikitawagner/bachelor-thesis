@@ -68,8 +68,6 @@ export const handleUpdateGNewsRequest = async (
 		}
 		const { data } = await makeGNewsRequest(ticker, limit, dateStart, dateEnd);
 		const allArticles = data.articles;
-		console.log("Ticker: ", ticker);
-		console.log("Number Articles: ", allArticles.length);
 		// limit article content to 600 tokens
 		allArticles.forEach((article) => {
 			let tokens = encode(article.content);
@@ -178,15 +176,8 @@ export const handleUpdateAllGNewsRequestForYear = async (inputYear, limit) => {
 			throw new Error(`Invalid year: ${inputYear}`);
 		}
 
-		// Construct valid dates
 		const startOfYear = new Date(`${year}-01-01T00:00:00Z`);
 		const endOfYear = new Date(`${year}-12-31T23:59:59Z`);
-
-		// Sanity-check
-		console.log("Start of Year:", startOfYear);
-		console.log("End of Year:  ", endOfYear);
-
-		// Proceed with your existing logic
 		const companies = await query("SELECT * FROM companies");
 
 		const updatePromises = [];
