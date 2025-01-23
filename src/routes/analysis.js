@@ -4,6 +4,7 @@ import {
 	handleGetSentimentAnalysisRequest,
 	handlePostAllSentimentForWholeYearRequest,
 	handlePostAllSentimentRequest,
+	handlePostAllTechnicalForWholeYearRequest,
 	handlePostAllTechnicalRequest,
 	handlePostSingleSentimentRequest,
 	handlePostSingleTechnicalRequest,

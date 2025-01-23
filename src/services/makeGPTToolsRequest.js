@@ -58,8 +58,8 @@ const makeGPTToolsRequest = async (
 				)[0].id;
 				let tokens = encode(JSON.stringify(messagesArray));
 				let responseTokens = encode(JSON.stringify(choice.message));
-				console.log(tokens.length);
-				console.log(responseTokens.length);
+				console.log("Input Tokens: " + tokens.length);
+				console.log("Output Tokens: " + responseTokens.length);
 
 				return await handeGPTResponse(
 					choice.message,
