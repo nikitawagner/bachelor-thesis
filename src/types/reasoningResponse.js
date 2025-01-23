@@ -36,6 +36,18 @@ const generateReasoningResponse = () => {
 			.describe(
 				"The action to take based on the reasoning. Long if buy, short if sell, hold if do nothing"
 			),
+		stop_loss: z
+			.number()
+			.optional()
+			.describe(
+				"The price at which the stock should be sold if the price goes down. This is a percentage of the buy price. Only use this when using technical analysis."
+			),
+		take_profit: z
+			.number()
+			.optional()
+			.describe(
+				"The price at which the trade should be closed. Only use this when using technical analysis."
+			),
 	});
 	return responseFormat;
 };

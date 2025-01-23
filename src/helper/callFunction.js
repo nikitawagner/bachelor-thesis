@@ -95,11 +95,11 @@ const callFunction = async (name, args, currentDate, analysisType) => {
 				(a, b) => new Date(b.date) - new Date(a.date)
 			);
 
-			const latest30 = sortedData.slice(0, 30);
+			const latest90 = sortedData.slice(0, 90);
 			return {
 				status: "SUCCESS",
 				message: "Function executed successfully",
-				data: latest30,
+				data: latest90,
 			};
 		}
 	} catch (error) {

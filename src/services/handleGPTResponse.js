@@ -12,6 +12,8 @@ const handeGPTResponse = async (
 	const confidence_score = response.confidence_score;
 	const action = response.action;
 	const reasoning_summary = response.reasoning_summary;
+	const stop_loss = response.stop_loss;
+	const take_profit = response.take_profit;
 	try {
 		console.log(`Start handling GPT Response for: ${ticker}`);
 		await query("BEGIN");
@@ -63,16 +65,29 @@ const handeGPTResponse = async (
 			}
 		}
 		console.log(`Insert Action for ${ticker}`);
-		const actionInsert = `
+		const actionInsert =
+			analysisType === "sentiment"
+				? `
             INSERT INTO actions (action_type, fk_price, fk_decision, datetime)
             VALUES ($1, $2, $3, $4) RETURNING id;
+        `
+				: `
+            INSERT INTO actions (action_type, fk_price, fk_decision, datetime, stop_loss, take_profit)
+            VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;
         `;
-		const actionResult = await query(actionInsert, [
-			action.toLowerCase(),
-			price,
-			decisionId,
-			datetime,
-		]);
+		const actionResult = await query(
+			actionInsert,
+			analysisType === "sentiment"
+				? [action.toLowerCase(), price, decisionId, datetime]
+				: [
+						action.toLowerCase(),
+						price,
+						decisionId,
+						datetime,
+						stop_loss,
+						take_profit,
+				  ]
+		);
 		const actionId = actionResult.rows[0].id;
 
 		await query("COMMIT");
