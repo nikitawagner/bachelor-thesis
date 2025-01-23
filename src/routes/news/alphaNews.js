@@ -48,7 +48,6 @@ alphaNewsRouter.post(
 				dateEnd,
 				limit
 			);
-			console.log(response);
 			res.json({ message: "Success", response });
 		} catch (error) {
 			next(error);

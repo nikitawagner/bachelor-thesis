@@ -42,7 +42,6 @@ const getWebsiteContents = async (items, tokenCount) => {
 		}
 
 		await browser.close();
-		console.log(results);
 		return results;
 	} catch (error) {
 		console.error("Error fetching website content:", error);
