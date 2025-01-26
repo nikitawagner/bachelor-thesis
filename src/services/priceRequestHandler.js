@@ -143,9 +143,9 @@ export const getAllPricesByTimespan = async (
 				400
 			);
 		}
-		if (!isValidDate(dateStart) || !isValidDate(dateEnd)) {
-			throw new ReturnError("Invalid date format. Must be YYYY-MM-DD", 400);
-		}
+		// if (!isValidDate(dateStart) || !isValidDate(dateEnd)) {
+		// 	throw new ReturnError("Invalid date format. Must be YYYY-MM-DD", 400);
+		// }
 		const startDate = new Date(dateStart);
 		const endDate = new Date(dateEnd);
 		if (endDate < startDate) {

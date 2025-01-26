@@ -3,9 +3,13 @@ import "dotenv/config";
 import { zodResponseFormat } from "openai/helpers/zod.mjs";
 import ReturnError from "../helper/ReturnError.js";
 import callFunction from "../helper/callFunction.js";
-import handleGPTResponse from "./handleGPTResponse.js";
+import handeGPTResponse from "./handleGPTResponse.js";
 import { getAllPricesByTimespan } from "./priceRequestHandler.js";
+import handleGPTTechnicalResponse from "./handleGPTTechnicalResponse.js";
+import { encode, decode } from "gpt-tokenizer/model/gpt-4o";
 const openai = new OpenAI();
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const makeGPTToolsRequest = async (
 	model,
@@ -14,7 +18,8 @@ const makeGPTToolsRequest = async (
 	responseFormat,
 	tools,
 	ticker,
-	currentDate
+	currentDate,
+	analysisType
 ) => {
 	console.log("Start Making GPT Request for : ", ticker);
 	const providedIds = [];
@@ -51,20 +56,29 @@ const makeGPTToolsRequest = async (
 				const priceId = priceResponse.filter(
 					(item) => item.price_type === "open"
 				)[0].id;
+				let tokens = encode(JSON.stringify(messagesArray));
+				let responseTokens = encode(JSON.stringify(choice.message));
+				console.log("Input Tokens: " + tokens.length);
+				console.log("Output Tokens: " + responseTokens.length);
 
-				return await handleGPTResponse(
-					// Return final response
+				return await handeGPTResponse(
 					choice.message,
 					priceId,
 					currentDate,
-					ticker
+					ticker,
+					analysisType
 				);
 			}
 			messagesArray.push(choice.message);
 			if (finishReason === "tool_calls") {
 				for (const toolCall of choice.message.tool_calls) {
 					const args = JSON.parse(toolCall.function.arguments);
-					const result = await callFunction(toolCall.function.name, args);
+					const result = await callFunction(
+						toolCall.function.name,
+						args,
+						currentDate,
+						analysisType
+					);
 					result.data?.forEach((data) => {
 						if (data.id) providedIds.push(data.id);
 					});
@@ -76,14 +90,17 @@ const makeGPTToolsRequest = async (
 					});
 				}
 
-				retries += 1; // Count tool call attempts
+				retries += 1;
+				if (retries < 3) {
+					await sleep(1100);
+				}
 			} else {
 				throw new ReturnError(`Unexpected finish reason: ${finishReason}`, 500);
 			}
 		} catch (error) {
 			console.error(`Attempt ${retries + 1} failed:`, error);
 			if (retries === 2)
-				throw new ReturnError(`Failed all Retries for ticker: ${ticker}`, 500); // Final attempt failed
+				throw new ReturnError(`Failed all Retries for ticker: ${ticker}`, 500);
 			if (error.status !== 404) {
 				retries += 1;
 			} else {

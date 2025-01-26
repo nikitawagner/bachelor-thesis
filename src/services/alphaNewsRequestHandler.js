@@ -79,13 +79,10 @@ export const handleUpdateAlphaRequest = async (
 			limit
 		);
 		console.log("Start Getting Website Contents");
-		console.log(alphaData.length);
-		console.log(alphaData);
 		const allArticles = await getWebsiteContents(
 			alphaData.filter((article) => article.relvanceScore > 0.4),
 			400
 		);
-		console.log(allArticles.length);
 		console.log("Finished Getting Website Contents");
 		const newsChunks = chunkArray(allArticles, 5);
 
@@ -113,7 +110,6 @@ export const handleUpdateAlphaRequest = async (
 				return gptResponse.parsed["News Sentiment"];
 			}
 		);
-		console.log(gptResponses);
 		await Promise.allSettled(
 			gptResponses.map(async (response) => {
 				if (response.status === "fulfilled") {

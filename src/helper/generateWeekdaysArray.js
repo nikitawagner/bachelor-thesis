@@ -2,7 +2,7 @@ const generateWeekdaysArray = (year) => {
 	const numericYear = Number(year);
 
 	const weekdays = [];
-	let currentDate = new Date(numericYear, 0, 1);
+	let currentDate = new Date(numericYear, 1, 1);
 
 	while (currentDate.getFullYear() === numericYear) {
 		const dayOfWeek = currentDate.getDay();

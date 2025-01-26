@@ -23,13 +23,19 @@ const callFunction = async (name, args, currentDate, analysisType) => {
 			const response = await handleGetTechnicalDataRequest(
 				args.ticker,
 				args.dateStart,
-				args.dateEnd,
+				currentDate,
 				args.functionType
 			);
+			const dataArray = response;
+			const sortedData = dataArray.sort(
+				(a, b) => new Date(b.date) - new Date(a.date)
+			);
+
+			const latest30 = sortedData.slice(0, 30);
 			return {
 				status: "SUCCESS",
 				message: "Function executed successfully",
-				data: response,
+				data: latest30,
 			};
 		}
 		if (name === "get_news_data") {
@@ -82,12 +88,18 @@ const callFunction = async (name, args, currentDate, analysisType) => {
 				null,
 				"TIME_SERIES_DAILY",
 				args.dateStart,
-				args.dateEnd
+				currentDate
 			);
+			const dataArray = response;
+			const sortedData = dataArray.sort(
+				(a, b) => new Date(b.date) - new Date(a.date)
+			);
+
+			const latest90 = sortedData.slice(0, 90);
 			return {
 				status: "SUCCESS",
 				message: "Function executed successfully",
-				data: response,
+				data: latest90,
 			};
 		}
 	} catch (error) {

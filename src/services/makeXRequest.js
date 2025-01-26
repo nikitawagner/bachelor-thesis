@@ -7,7 +7,6 @@ const makeXRequest = async () => {
 			query: "$AAPL -discord -🚀",
 		};
 		const res = await xAPI.get("/", { params });
-		console.log(res);
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}

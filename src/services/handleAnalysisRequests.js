@@ -9,6 +9,11 @@ import {
 
 import generateReasoningResponse from "../types/reasoningResponse.js";
 import generateWeekdaysArray from "../helper/generateWeekdaysArray.js";
+import {
+	createTechnicalAnalysisPrompt,
+	devTechnicalPrompt,
+} from "../prompts/technicalAnalysis.js";
+import technicalTools from "../helper/technicalTools.js";
 
 const chunkArray = (array, chunkSize) => {
 	const chunks = [];
@@ -42,7 +47,8 @@ export const handlePostSingleSentimentRequest = async (ticker, date) => {
 			generateReasoningResponse(),
 			sentimentalTools,
 			ticker,
-			date
+			date,
+			"sentiment"
 		);
 		return response;
 	} catch (error) {
@@ -244,7 +250,8 @@ export const handlePostAllSentimentRequest = async (date) => {
 				generateReasoningResponse(),
 				sentimentalTools,
 				company.ticker,
-				date
+				date,
+				"sentiment"
 			)
 		);
 		return responses;
@@ -261,6 +268,61 @@ export const handlePostAllSentimentForWholeYearRequest = async (year) => {
 			const result = await handlePostAllSentimentRequest(weekday);
 			results.push(result);
 		}
+		return results;
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
+export const handlePostSingleTechnicalRequest = async (ticker, date) => {
+	try {
+		const response = await makeGPTToolsRequest(
+			"gpt-4o-mini",
+			devTechnicalPrompt,
+			createTechnicalAnalysisPrompt(ticker, date),
+			generateReasoningResponse(),
+			technicalTools,
+			ticker,
+			date,
+			"technical"
+		);
+		return response;
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
+export const handlePostAllTechnicalRequest = async (date) => {
+	try {
+		const { rows: companies } = await query("SELECT * FROM companies");
+
+		const responses = await processInBatches(companies, 3, 2000, (company) =>
+			makeGPTToolsRequest(
+				"gpt-4o-mini",
+				devTechnicalPrompt,
+				createTechnicalAnalysisPrompt(company.ticker, date),
+				generateReasoningResponse(),
+				technicalTools,
+				company.ticker,
+				date,
+				"technical"
+			)
+		);
+		return responses;
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
+export const handlePostAllTechnicalForWholeYearRequest = async (year) => {
+	try {
+		const results = [];
+		const weekdays = generateWeekdaysArray(year);
+		for (const weekday of weekdays) {
+			const result = await handlePostAllTechnicalRequest(weekday);
+			results.push(result);
+		}
+		return results;
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}

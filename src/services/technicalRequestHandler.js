@@ -16,17 +16,17 @@ export const handleAddTechnicalRequest = async (
 		const allowedFunctionTypes = [
 			"SMA",
 			"EMA",
-			"WMA",
-			"DEMA",
-			"TEMA",
-			"STOCH",
+			//"WMA",
+			//"DEMA",
+			//"TEMA",
+			//"STOCH",
 			"RSI",
 			"ADX",
 			"ADXR",
-			"MINUS_DI",
-			"PLUS_DI",
-			"MINUS_DM",
-			"PLUS_DM",
+			//"MINUS_DI",
+			//"PLUS_DI",
+			//"MINUS_DM",
+			//"PLUS_DM",
 			"BBANDS",
 		];
 		if (!allowedFunctionTypes.includes(functionType)) {
@@ -70,23 +70,18 @@ export const handleAddTechnicalRequest = async (
         FROM technical_data_types_subtypes
         WHERE sub_type IN (${subtypeKeys})
         `;
-		console.log(subtypeQuery);
 		const { rows: subtypeRows } = await query(subtypeQuery);
-		console.log(subtypeRows);
 		const subtypeMap = Object.fromEntries(
 			subtypeRows.map((row) => [row.sub_type, row.id])
 		);
-		console.log(subtypeMap);
 		const insertPromises = alphaData.map(async (entry) => {
 			const datetime = entry.date;
-			console.log(datetime);
 			const techDataResult = await query(
 				`INSERT INTO technical_data (fk_type, fk_company, datetime)
          			VALUES ($1, $2, $3) RETURNING id`,
 				[functionType, ticker, datetime]
 			);
 
-			console.log(techDataResult);
 			const technicalDataId = techDataResult.rows[0].id;
 			const valueInsertPromises = Object.entries(entry)
 				.filter(([key]) => key !== "date")
@@ -117,7 +112,6 @@ export const handleGetTechnicalDataRequest = async (
 	functionType
 ) => {
 	try {
-		console.log(ticker);
 		const queryText = `
 			WITH formatted_data AS (
 				SELECT
@@ -162,7 +156,6 @@ export const handleGetTechnicalDataRequest = async (
 			ticker,
 			functionType,
 		]);
-		console.log(response);
 		return response.rows[0].result;
 	} catch (error) {
 		throw new ReturnError(error, error.status);

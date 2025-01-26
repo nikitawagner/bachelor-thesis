@@ -7,7 +7,6 @@ export const returnStandardDeviation = async (symbols) => {
 			throw new ReturnError("Symbols must be an array", 400);
 		}
 		const result = await makeAlphaStandardDeviation(symbols, "full", "daily");
-		console.log(result.data.payload);
 	} catch (error) {
 		console.log(error);
 		throw new ReturnError(error, 500);
