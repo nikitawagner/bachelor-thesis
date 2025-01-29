@@ -50,7 +50,7 @@ BEGIN
                         split_part(split_part(strat.name, '_', 2), '_', 1) AS INT
                     );
                 ELSE
-                    v_days_to_close := 1;
+                    v_days_to_close := 0;
                 END IF;
 
                 v_close_price := get_nth_trading_day_price(
