@@ -95,7 +95,8 @@ BEGIN
                 strat.id,
                 v_result,
                 v_percentage
-            );
+            ) 
+            ON CONFLICT (fk_action, fk_closing_strategy) DO NOTHING;
         END LOOP; 
     END LOOP;   
 END;
