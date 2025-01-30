@@ -9,8 +9,40 @@ import {
 	handlePostSingleSentimentRequest,
 	handlePostSingleTechnicalRequest,
 } from "../services/handleAnalysisRequests.js";
+import { query } from "../db/index.js";
 
 const analysisRouter = express.Router();
+
+analysisRouter.get("/", async (req, res, next) => {
+	try {
+		const response = await query(`
+			SELECT
+				comp.ticker                    AS "Company",
+				a.analysis_type                AS "Analysis_Type",
+				actions.action_type            AS "Trade_Side",
+				closeS.name                    AS "Closing_Strategy",
+				price.value                    AS "Open_Price",
+				ROUND( (price.value * (a.percentage / 100.0))::numeric, 2 ) 
+					AS "Dollar_Gain_Loss",
+				a.percentage				    AS "Percentage",
+				a.result                       AS "Trade_Result",
+				actions.datetime				AS "Day of Trade"
+			FROM analysis a
+			JOIN actions 
+				ON a.fk_action = actions.id
+			JOIN prices price
+				ON actions.fk_price = price.id
+			JOIN companies comp
+				ON price.fk_company = comp.ticker
+			JOIN closing_strategy closeS
+				ON a.fk_closing_strategy = closeS.id
+			ORDER BY a.id ASC, "Closing_Strategy" ASC`);
+		const result = response.rows;
+		res.json({ message: "Success", result });
+	} catch (error) {
+		next(error);
+	}
+});
 
 // get all sentimental analysis for actionType but all dates
 analysisRouter.get("/sentiment/all/:actionType", async (req, res, next) => {
