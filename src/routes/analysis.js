@@ -13,7 +13,7 @@ import { query } from "../db/index.js";
 
 const analysisRouter = express.Router();
 
-analysisRouter.get("/", async (req, res, next) => {
+analysisRouter.get("/get/all", async (req, res, next) => {
 	try {
 		const response = await query(`
 			SELECT
@@ -37,6 +37,55 @@ analysisRouter.get("/", async (req, res, next) => {
 			JOIN closing_strategy closeS
 				ON a.fk_closing_strategy = closeS.id
 			ORDER BY a.id ASC, "Closing_Strategy" ASC`);
+		const result = response.rows;
+		res.json({ message: "Success", result });
+	} catch (error) {
+		next(error);
+	}
+});
+
+analysisRouter.post("/get", async (req, res, next) => {
+	try {
+		const {
+			ticker,
+			analysisType,
+			actionType,
+			closingStrategy,
+			dateStart,
+			dateEnd,
+		} = req.body;
+		console.log(req.body);
+		const response = await query(
+			`SELECT
+				comp.ticker                    AS "Company",
+				a.analysis_type                AS "Analysis_Type",
+				actions.action_type            AS "Trade_Side",
+				closeS.name                    AS "Closing_Strategy",
+				price.value                    AS "Open_Price",
+				ROUND( (price.value * (a.percentage / 100.0))::numeric, 2 ) 
+					AS "Dollar_Gain_Loss",
+				a.percentage                   AS "Percentage",
+				a.result                       AS "Trade_Result",
+				actions.datetime               AS "Day of Trade"
+			FROM analysis a
+			JOIN actions 
+				ON a.fk_action = actions.id
+			JOIN prices price
+				ON actions.fk_price = price.id
+			JOIN companies comp
+				ON price.fk_company = comp.ticker
+			JOIN closing_strategy closeS
+				ON a.fk_closing_strategy = closeS.id
+			WHERE 
+				($1::TEXT IS NULL OR comp.ticker = $1::TEXT) AND
+				($2::analysis_type IS NULL OR a.analysis_type = $2::analysis_type) AND
+				($3::action_type IS NULL OR actions.action_type = $3::action_type) AND
+				($4::TEXT IS NULL OR closeS.name = $4::TEXT) AND
+				($5::DATE IS NULL OR actions.datetime >= $5::DATE) AND
+				($6::DATE IS NULL OR actions.datetime <= $6::DATE)
+			ORDER BY a.id ASC, "Closing_Strategy" ASC`,
+			[ticker, analysisType, actionType, closingStrategy, dateStart, dateEnd]
+		);
 		const result = response.rows;
 		res.json({ message: "Success", result });
 	} catch (error) {
