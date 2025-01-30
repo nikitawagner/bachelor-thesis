@@ -93,6 +93,16 @@ analysisRouter.post("/get", async (req, res, next) => {
 	}
 });
 
+analysisRouter.post("/", async (req, res, next) => {
+	try {
+		const response = await query(`CALL apply_closing_strategies();`);
+		const result = response;
+		res.json({ message: "Success", result });
+	} catch (error) {
+		next(error);
+	}
+});
+
 // get all sentimental analysis for actionType but all dates
 analysisRouter.get("/sentiment/all/:actionType", async (req, res, next) => {
 	try {
