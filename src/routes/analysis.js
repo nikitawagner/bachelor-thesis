@@ -237,4 +237,17 @@ analysisRouter.post("/technical/:ticker/:date", async (req, res, next) => {
 	}
 });
 
+analysisRouter.delete("/reset", async (req, res, next) => {
+	try {
+		await query("DELETE FROM analysis");
+		await query("DELETE FROM actions");
+		await query("DELETE FROM decisions_sentiment_data");
+		await query("DELETE FROM decisions_technical_data");
+		await query("DELETE FROM decisions");
+		res.json({ message: "Success" });
+	} catch (error) {
+		next(error);
+	}
+});
+
 export default analysisRouter;
