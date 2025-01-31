@@ -177,7 +177,6 @@ analysisRouter.get("/technical", async (req, res, next) => {
 	}
 });
 
-// create sentimental analysis for every ticker in database for every weekday of given year
 analysisRouter.post("/sentiment/full/:year", async (req, res, next) => {
 	try {
 		const { year } = req.params;
@@ -188,7 +187,6 @@ analysisRouter.post("/sentiment/full/:year", async (req, res, next) => {
 	}
 });
 
-// create sentimental analysis for every ticker in database for given date
 analysisRouter.post("/sentiment/all/:date", async (req, res, next) => {
 	try {
 		const { date } = req.params;
@@ -199,7 +197,6 @@ analysisRouter.post("/sentiment/all/:date", async (req, res, next) => {
 	}
 });
 
-// create sentimental analysis for specific ticker for given date
 analysisRouter.post("/sentiment/:ticker/:date", async (req, res, next) => {
 	try {
 		const { ticker, date } = req.params;

@@ -15,14 +15,6 @@ import {
 } from "../prompts/technicalAnalysis.js";
 import technicalTools from "../helper/technicalTools.js";
 
-const chunkArray = (array, chunkSize) => {
-	const chunks = [];
-	for (let i = 0; i < array.length; i += chunkSize) {
-		chunks.push(array.slice(i, i + chunkSize));
-	}
-	return chunks;
-};
-
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const processInBatches = async (items, batchSize, delayMs, processFunction) => {
