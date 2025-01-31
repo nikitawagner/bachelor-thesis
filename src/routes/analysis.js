@@ -1,7 +1,6 @@
 import express from "express";
 import {
-	handleGetAllSentimentalAnalysisRequest,
-	handleGetSentimentAnalysisRequest,
+	getAnalysisData,
 	handlePostAllSentimentForWholeYearRequest,
 	handlePostAllSentimentRequest,
 	handlePostAllTechnicalForWholeYearRequest,
@@ -13,7 +12,7 @@ import { query } from "../db/index.js";
 
 const analysisRouter = express.Router();
 
-analysisRouter.get("/get/all", async (req, res, next) => {
+analysisRouter.get("/all", async (req, res, next) => {
 	try {
 		const response = await query(`
 			SELECT
@@ -36,7 +35,7 @@ analysisRouter.get("/get/all", async (req, res, next) => {
 				ON price.fk_company = comp.ticker
 			JOIN closing_strategy closeS
 				ON a.fk_closing_strategy = closeS.id
-			ORDER BY a.id ASC, "Closing_Strategy" ASC`);
+			ORDER BY a.id ASC, closeS.name  ASC`);
 		const result = response.rows;
 		res.json({ message: "Success", result });
 	} catch (error) {
@@ -44,7 +43,7 @@ analysisRouter.get("/get/all", async (req, res, next) => {
 	}
 });
 
-analysisRouter.post("/get", async (req, res, next) => {
+analysisRouter.get("/", async (req, res, next) => {
 	try {
 		const {
 			ticker,
@@ -53,41 +52,84 @@ analysisRouter.post("/get", async (req, res, next) => {
 			closingStrategy,
 			dateStart,
 			dateEnd,
-		} = req.body;
-		console.log(req.body);
-		const response = await query(
-			`SELECT
+		} = req.query;
+
+		let baseQuery = `
+			SELECT
 				comp.ticker                    AS "Company",
 				a.analysis_type                AS "Analysis_Type",
 				actions.action_type            AS "Trade_Side",
 				closeS.name                    AS "Closing_Strategy",
 				price.value                    AS "Open_Price",
 				ROUND( (price.value * (a.percentage / 100.0))::numeric, 2 ) 
-					AS "Dollar_Gain_Loss",
+				AS "Dollar_Gain_Loss",
 				a.percentage                   AS "Percentage",
 				a.result                       AS "Trade_Result",
 				actions.datetime               AS "Day of Trade"
 			FROM analysis a
-			JOIN actions 
-				ON a.fk_action = actions.id
-			JOIN prices price
-				ON actions.fk_price = price.id
-			JOIN companies comp
-				ON price.fk_company = comp.ticker
-			JOIN closing_strategy closeS
-				ON a.fk_closing_strategy = closeS.id
-			WHERE 
-				($1::TEXT IS NULL OR comp.ticker = $1::TEXT) AND
-				($2::analysis_type IS NULL OR a.analysis_type = $2::analysis_type) AND
-				($3::action_type IS NULL OR actions.action_type = $3::action_type) AND
-				($4::TEXT IS NULL OR closeS.name = $4::TEXT) AND
-				($5::DATE IS NULL OR actions.datetime >= $5::DATE) AND
-				($6::DATE IS NULL OR actions.datetime <= $6::DATE)
-			ORDER BY a.id ASC, "Closing_Strategy" ASC`,
-			[ticker, analysisType, actionType, closingStrategy, dateStart, dateEnd]
-		);
-		const result = response.rows;
-		res.json({ message: "Success", result });
+				JOIN actions            ON a.fk_action           = actions.id
+				JOIN prices   price     ON actions.fk_price      = price.id
+				JOIN companies comp     ON price.fk_company      = comp.ticker
+				JOIN closing_strategy closeS
+					ON a.fk_closing_strategy = closeS.id
+			`;
+
+		const conditions = [];
+		const params = [];
+
+		if (ticker) {
+			params.push(ticker);
+			conditions.push(`comp.ticker = $${params.length}::TEXT`);
+		}
+
+		if (analysisType) {
+			params.push(analysisType);
+			conditions.push(`a.analysis_type = $${params.length}::analysis_type`);
+		}
+
+		if (actionType) {
+			params.push(actionType);
+			conditions.push(`actions.action_type = $${params.length}::action_type`);
+		}
+
+		if (closingStrategy) {
+			params.push(closingStrategy);
+			conditions.push(`closeS.name = $${params.length}::TEXT`);
+		}
+
+		if (dateStart && dateEnd) {
+			if (dateStart === dateEnd) {
+				params.push(dateStart);
+				conditions.push(`actions.datetime = $${params.length}::DATE`);
+			} else {
+				params.push(dateStart);
+				params.push(dateEnd);
+				const idxStart = params.length - 1;
+				const idxEnd = params.length;
+				conditions.push(
+					`actions.datetime BETWEEN $${idxStart}::DATE AND $${idxEnd}::DATE`
+				);
+			}
+		} else if (dateStart) {
+			params.push(dateStart);
+			conditions.push(`actions.datetime >= $${params.length}::DATE`);
+		} else if (dateEnd) {
+			params.push(dateEnd);
+			conditions.push(`actions.datetime <= $${params.length}::DATE`);
+		}
+
+		const whereClause = conditions.length
+			? `WHERE ${conditions.join(" AND ")}`
+			: "";
+
+		const finalQuery = `
+			${baseQuery}
+			${whereClause}
+			ORDER BY a.id ASC, closeS.name ASC
+			`;
+
+		const response = await query(finalQuery, params);
+		res.json({ message: "Success", result: response.rows });
 	} catch (error) {
 		next(error);
 	}
@@ -103,69 +145,37 @@ analysisRouter.post("/", async (req, res, next) => {
 	}
 });
 
-// get all sentimental analysis for actionType but all dates
-analysisRouter.get("/sentiment/all/:actionType", async (req, res, next) => {
+analysisRouter.get("/sentiment", async (req, res, next) => {
 	try {
-		const { actionType } = req.params;
-		const response = await handleGetAllSentimentalAnalysisRequest(
-			actionType.toLowerCase()
-		);
-		res.json({ message: "Success", response });
-	} catch (error) {
-		next(error);
-	}
-});
-
-// get all sentimental analysis for actionType and specific date range
-analysisRouter.get(
-	"/sentiment/all/:actionType/:dateStart/:dateEnd",
-	async (req, res, next) => {
-		try {
-			const { actionType, dateStart, dateEnd } = req.params;
-			const response = await handleGetAllSentimentalAnalysisRequest(
-				actionType,
-				dateStart,
-				dateEnd
-			);
-			res.json({ message: "Success", response });
-		} catch (error) {
-			next(error);
-		}
-	}
-);
-
-// get single sentimental analysis for actionType but all dates
-analysisRouter.get("/sentiment/:ticker/:actionType", async (req, res, next) => {
-	try {
-		const { ticker, actionType } = req.params;
-		const response = await handleGetSentimentAnalysisRequest(
+		const { ticker, actionType, dateStart, dateEnd } = req.query;
+		const response = await getAnalysisData({
+			analysisType: "sentiment",
 			ticker,
-			actionType.toLowerCase()
-		);
+			actionType: actionType?.toLowerCase(),
+			dateStart,
+			dateEnd,
+		});
 		res.json({ message: "Success", response });
 	} catch (error) {
 		next(error);
 	}
 });
 
-//get single setniment analysis for specific date range
-analysisRouter.get(
-	"/sentiment/:ticker/:actionType/:dateStart/:dateEnd",
-	async (req, res, next) => {
-		try {
-			const { ticker, dateStart, dateEnd, actionType } = req.params;
-			const response = await handleGetSentimentAnalysisRequest(
-				ticker,
-				actionType.toLowerCase(),
-				dateStart,
-				dateEnd
-			);
-			res.json({ message: "Success", response });
-		} catch (error) {
-			next(error);
-		}
+analysisRouter.get("/technical", async (req, res, next) => {
+	try {
+		const { ticker, actionType, dateStart, dateEnd } = req.query;
+		const response = await getAnalysisData({
+			analysisType: "technical",
+			ticker,
+			actionType: actionType?.toLowerCase(),
+			dateStart,
+			dateEnd,
+		});
+		res.json({ message: "Success", response });
+	} catch (error) {
+		next(error);
 	}
-);
+});
 
 // create sentimental analysis for every ticker in database for every weekday of given year
 analysisRouter.post("/sentiment/full/:year", async (req, res, next) => {
