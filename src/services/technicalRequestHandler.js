@@ -25,7 +25,7 @@ export const handleAddTechnicalRequest = async (
 			"ADXR",
 			"MINUS_DI",
 			"PLUS_DI",
-			//"MINUS_DM",
+			"MINUS_DM",
 			//"PLUS_DM",
 			"BBANDS",
 		];
