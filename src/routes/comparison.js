@@ -1,31 +1,7 @@
 import express from "express";
-import fs from "fs";
 import path from "path";
-import { performance } from "perf_hooks";
 import { fileURLToPath } from "url";
-import makeGPTRequest from "../services/makeGPTRequest.js";
-import { createPricePrompt, devPrompt } from "../prompts/priceData.js";
 import ReturnError from "../helper/ReturnError.js";
-import makeAlphaPriceRequest from "../services/makeAlphaPriceRequest.js";
-import validateDate from "../helper/validateDate.js";
-import generatePriceDataRespone from "../types/priceDataResponse.js";
-import {
-	createMovingAveragePrompt,
-	devPrompt as technicalDevPrompt,
-} from "../prompts/technicalData.js";
-import {
-	createNewsSentimentPrompt,
-	createNewsSentimentSummaryPrompt,
-	devPrompt as newsDevPrompt,
-} from "../prompts/newsData.js";
-import generateMovingAverageResponse from "../types/movingAverageResponse.js";
-import makeAlphaMovingAverageRequest from "../services/makeAlphaMovingAverageRequest.js";
-import extractAlphaDataByDate from "../helper/extractAlphaDataByDate.js";
-import makeAlphaNewsRequest from "../services/makeAlphaNewsRequest.js";
-import extractNewsDataByTicker from "../helper/extractNewsDataByTicker.js";
-import generateNewsSentimentResponse from "../types/newsSentimentResponse.js";
-import generateNewsSentimentSummaryResponse from "../types/newsSentimentSummaryResponse.js";
-import getWebsiteContent from "../services/getWebsiteContent.js";
 import validateRequestParams from "../helper/validateRequestParams.js";
 import {
 	handleMovingAverageRequest,
