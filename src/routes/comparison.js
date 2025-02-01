@@ -8,6 +8,7 @@ import {
 	handleNewsSentimentRequest,
 	handleNewsSentimentSummaryRequest,
 	handlePriceDataRequest,
+	handleReproducibilityRequest,
 } from "../services/comparisonRequestHandler.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -124,6 +125,19 @@ comparisonRouter.get(
 			return res
 				.status(200)
 				.json("Written News Sentiment with Summary Successfully");
+		} catch (error) {
+			next(error);
+		}
+	}
+);
+
+comparisonRouter.post(
+	"/consistency/reproducibility",
+	async (req, res, next) => {
+		try {
+			const { tickers, dateStart, dateEnd } = req.body;
+			await handleReproducibilityRequest(tickers, dateStart, dateEnd);
+			return res.status(200).json("Written Price Data successfully");
 		} catch (error) {
 			next(error);
 		}
