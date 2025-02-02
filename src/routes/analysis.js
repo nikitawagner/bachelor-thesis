@@ -16,6 +16,7 @@ analysisRouter.get("/all", async (req, res, next) => {
 	try {
 		const response = await query(`
 			SELECT
+				actions.id                     AS "Action_ID",
 				comp.ticker                    AS "Company",
 				a.analysis_type                AS "Analysis_Type",
 				actions.action_type            AS "Trade_Side",
@@ -56,6 +57,7 @@ analysisRouter.get("/", async (req, res, next) => {
 
 		let baseQuery = `
 			SELECT
+				actions.id                     AS "Action_ID",
 				comp.ticker                    AS "Company",
 				a.analysis_type                AS "Analysis_Type",
 				actions.action_type            AS "Trade_Side",
