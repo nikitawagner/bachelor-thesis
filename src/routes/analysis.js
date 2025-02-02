@@ -179,15 +179,22 @@ analysisRouter.get("/technical", async (req, res, next) => {
 	}
 });
 
-analysisRouter.post("/sentiment/full/:year", async (req, res, next) => {
-	try {
-		const { year } = req.params;
-		const response = await handlePostAllSentimentForWholeYearRequest(year);
-		res.json({ message: "Success", response });
-	} catch (error) {
-		next(error);
+analysisRouter.post(
+	"/sentiment/full/:year/:monthStart/:monthEnd",
+	async (req, res, next) => {
+		try {
+			const { year, monthStart, monthEnd } = req.params;
+			const response = await handlePostAllSentimentForWholeYearRequest(
+				year,
+				monthStart,
+				monthEnd
+			);
+			res.json({ message: "Success", response });
+		} catch (error) {
+			next(error);
+		}
 	}
-});
+);
 
 analysisRouter.post("/sentiment/all/:date", async (req, res, next) => {
 	try {
@@ -209,15 +216,22 @@ analysisRouter.post("/sentiment/:ticker/:date", async (req, res, next) => {
 	}
 });
 
-analysisRouter.post("/technical/full/:year", async (req, res, next) => {
-	try {
-		const { year } = req.params;
-		const response = await handlePostAllTechnicalForWholeYearRequest(year);
-		res.json({ message: "Success", response });
-	} catch (error) {
-		next(error);
+analysisRouter.post(
+	"/technical/full/:year/:monthStart/:monthEnd",
+	async (req, res, next) => {
+		try {
+			const { year, monthStart, monthEnd } = req.params;
+			const response = await handlePostAllTechnicalForWholeYearRequest(
+				year,
+				monthStart,
+				monthEnd
+			);
+			res.json({ message: "Success", response });
+		} catch (error) {
+			next(error);
+		}
 	}
-});
+);
 
 analysisRouter.post("/technical/all/:date", async (req, res, next) => {
 	try {

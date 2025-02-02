@@ -70,10 +70,14 @@ export const handlePostAllSentimentRequest = async (date) => {
 	}
 };
 
-export const handlePostAllSentimentForWholeYearRequest = async (year) => {
+export const handlePostAllSentimentForWholeYearRequest = async (
+	year,
+	monthStart,
+	monthEnd
+) => {
 	try {
 		const results = [];
-		const weekdays = generateWeekdaysArray(year);
+		const weekdays = generateWeekdaysArray(year, monthStart, monthEnd);
 		for (const weekday of weekdays) {
 			const result = await handlePostAllSentimentRequest(weekday);
 			results.push(result);
@@ -124,10 +128,14 @@ export const handlePostAllTechnicalRequest = async (date) => {
 	}
 };
 
-export const handlePostAllTechnicalForWholeYearRequest = async (year) => {
+export const handlePostAllTechnicalForWholeYearRequest = async (
+	year,
+	monthStart,
+	monthEnd
+) => {
 	try {
 		const results = [];
-		const weekdays = generateWeekdaysArray(year);
+		const weekdays = generateWeekdaysArray(year, monthStart, monthEnd);
 		for (const weekday of weekdays) {
 			const result = await handlePostAllTechnicalRequest(weekday);
 			results.push(result);
