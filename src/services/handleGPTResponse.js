@@ -5,7 +5,10 @@ const handeGPTResponse = async (
 	price,
 	datetime,
 	ticker,
-	analysisType
+	analysisType,
+	inputTokens,
+	outputTokens,
+	executionTime
 ) => {
 	const response = rawResponse.parsed;
 	const reasonsArray = response.reasons_array;
@@ -68,17 +71,26 @@ const handeGPTResponse = async (
 		const actionInsert =
 			analysisType === "sentiment"
 				? `
-            INSERT INTO actions (action_type, fk_price, fk_decision, datetime, analysis_type)
-            VALUES ($1, $2, $3, $4, $5) RETURNING id;
+            INSERT INTO actions (action_type, fk_price, fk_decision, datetime, analysis_type, input_tokens, output_tokens, execution_time_seconds)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id;
         `
 				: `
-            INSERT INTO actions (action_type, fk_price, fk_decision, datetime, stop_loss, take_profit, analysis_type)
-            VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;
+            INSERT INTO actions (action_type, fk_price, fk_decision, datetime, stop_loss, take_profit, analysis_type, input_tokens, output_tokens, execution_time_seconds)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id;
         `;
 		const actionResult = await query(
 			actionInsert,
 			analysisType === "sentiment"
-				? [action.toLowerCase(), price, decisionId, datetime, "sentiment"]
+				? [
+						action.toLowerCase(),
+						price,
+						decisionId,
+						datetime,
+						"sentiment",
+						inputTokens,
+						outputTokens,
+						executionTime,
+				  ]
 				: [
 						action.toLowerCase(),
 						price,
@@ -87,6 +99,9 @@ const handeGPTResponse = async (
 						stop_loss,
 						take_profit,
 						"technical",
+						inputTokens,
+						outputTokens,
+						executionTime,
 				  ]
 		);
 		const actionId = actionResult.rows[0].id;
