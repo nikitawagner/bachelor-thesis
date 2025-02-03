@@ -15,14 +15,6 @@ import {
 } from "../prompts/technicalAnalysis.js";
 import technicalTools from "../helper/technicalTools.js";
 
-const chunkArray = (array, chunkSize) => {
-	const chunks = [];
-	for (let i = 0; i < array.length; i += chunkSize) {
-		chunks.push(array.slice(i, i + chunkSize));
-	}
-	return chunks;
-};
-
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const processInBatches = async (items, batchSize, delayMs, processFunction) => {
@@ -56,188 +48,6 @@ export const handlePostSingleSentimentRequest = async (ticker, date) => {
 	}
 };
 
-export const handleGetSentimentAnalysisRequest = async (
-	ticker,
-	actionType,
-	dateStart,
-	dateEnd
-) => {
-	try {
-		if (dateStart && dateEnd && dateStart !== dateEnd) {
-			const response = await query(
-				`SELECT 
-				json_build_object(
-					'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
-					'confidence_score', ROUND(d.confidence_score::numeric, 2),
-					'reasoning_summary', d.reasoning_summary,
-					'action', a.action_type
-				) AS result
-			FROM actions a
-			JOIN prices p ON a.fk_price = p.id
-			JOIN decisions d ON a.fk_decision = d.id
-			LEFT JOIN LATERAL (
-				SELECT json_agg(json_build_object(
-					'id', dsd.fk_sentiment_data::text,
-					'reasoning', dsd.reasoning
-				)) AS reasons_array
-				FROM decisions_sentiment_data dsd
-				WHERE dsd.fk_decision = d.id
-			) reasons ON true
-			WHERE p.fk_company = $1
-				AND a.action_type = $2
-				AND a.datetime BETWEEN $3 AND $4
-			ORDER BY a.datetime DESC;`,
-				[ticker, actionType, dateStart, dateEnd]
-			);
-			return response.rows;
-		} else if (dateStart && dateEnd && dateStart === dateEnd) {
-			const response = await query(
-				`SELECT 
-				json_build_object(
-					'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
-					'confidence_score', ROUND(d.confidence_score::numeric, 2),
-					'reasoning_summary', d.reasoning_summary,
-					'action', a.action_type
-				) AS result
-			FROM actions a
-			JOIN prices p ON a.fk_price = p.id
-			JOIN decisions d ON a.fk_decision = d.id
-			LEFT JOIN LATERAL (
-				SELECT json_agg(json_build_object(
-					'id', dsd.fk_sentiment_data::text,
-					'reasoning', dsd.reasoning
-				)) AS reasons_array
-				FROM decisions_sentiment_data dsd
-				WHERE dsd.fk_decision = d.id
-			) reasons ON true
-			WHERE p.fk_company = $1
-				AND a.action_type = $2
-				AND a.datetime = $3
-			ORDER BY a.datetime DESC;`,
-				[ticker, actionType, dateStart]
-			);
-			return response.rows;
-		} else {
-			const response = await query(
-				`SELECT 
-					json_build_object(
-						'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
-						'confidence_score', ROUND(d.confidence_score::numeric, 2),
-						'reasoning_summary', d.reasoning_summary,
-						'action', a.action_type
-					) AS result
-				FROM actions a
-				JOIN prices p ON a.fk_price = p.id
-				JOIN decisions d ON a.fk_decision = d.id
-				LEFT JOIN LATERAL (
-					SELECT json_agg(json_build_object(
-						'id', dsd.fk_sentiment_data::text,
-						'reasoning', dsd.reasoning
-					)) AS reasons_array
-					FROM decisions_sentiment_data dsd
-					WHERE dsd.fk_decision = d.id
-				) reasons ON true
-				WHERE p.fk_company = $1
-					AND a.action_type = $2
-				ORDER BY a.datetime DESC;`,
-				[ticker, actionType]
-			);
-			return response.rows;
-		}
-	} catch (error) {
-		throw new ReturnError(error, error.status);
-	}
-};
-
-export const handleGetAllSentimentalAnalysisRequest = async (
-	actionType,
-	dateStart,
-	dateEnd
-) => {
-	try {
-		if (dateStart && dateEnd && dateStart !== dateEnd) {
-			const response = await query(
-				`SELECT 
-				json_build_object(
-					'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
-					'confidence_score', ROUND(d.confidence_score::numeric, 2),
-					'reasoning_summary', d.reasoning_summary,
-					'action', a.action_type
-				) AS result
-			FROM actions a
-			JOIN prices p ON a.fk_price = p.id
-			JOIN decisions d ON a.fk_decision = d.id
-			LEFT JOIN LATERAL (
-				SELECT json_agg(json_build_object(
-					'id', dsd.fk_sentiment_data::text,
-					'reasoning', dsd.reasoning
-				)) AS reasons_array
-				FROM decisions_sentiment_data dsd
-				WHERE dsd.fk_decision = d.id
-			) reasons ON true
-			WHERE a.action_type = $1
-				AND a.datetime BETWEEN $2 AND $3
-			ORDER BY a.datetime DESC;`,
-				[actionType, dateStart, dateEnd]
-			);
-			return response.rows;
-		} else if (dateStart && dateEnd && dateStart === dateEnd) {
-			const response = await query(
-				`SELECT 
-				json_build_object(
-					'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
-					'confidence_score', ROUND(d.confidence_score::numeric, 2),
-					'reasoning_summary', d.reasoning_summary,
-					'action', a.action_type
-				) AS result
-			FROM actions a
-			JOIN prices p ON a.fk_price = p.id
-			JOIN decisions d ON a.fk_decision = d.id
-			LEFT JOIN LATERAL (
-				SELECT json_agg(json_build_object(
-					'id', dsd.fk_sentiment_data::text,
-					'reasoning', dsd.reasoning
-				)) AS reasons_array
-				FROM decisions_sentiment_data dsd
-				WHERE dsd.fk_decision = d.id
-			) reasons ON true
-			WHERE a.action_type = $1
-				AND a.datetime = $2
-			ORDER BY a.datetime DESC;`,
-				[actionType, dateStart]
-			);
-			return response.rows;
-		} else {
-			const response = await query(
-				`SELECT 
-					json_build_object(
-						'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
-						'confidence_score', ROUND(d.confidence_score::numeric, 2),
-						'reasoning_summary', d.reasoning_summary,
-						'action', a.action_type
-					) AS result
-				FROM actions a
-				JOIN prices p ON a.fk_price = p.id
-				JOIN decisions d ON a.fk_decision = d.id
-				LEFT JOIN LATERAL (
-					SELECT json_agg(json_build_object(
-						'id', dsd.fk_sentiment_data::text,
-						'reasoning', dsd.reasoning
-					)) AS reasons_array
-					FROM decisions_sentiment_data dsd
-					WHERE dsd.fk_decision = d.id
-				) reasons ON true
-				WHERE a.action_type = $1
-				ORDER BY a.datetime DESC;`,
-				[actionType]
-			);
-			return response.rows;
-		}
-	} catch (error) {
-		throw new ReturnError(error, error.status);
-	}
-};
-
 export const handlePostAllSentimentRequest = async (date) => {
 	try {
 		const { rows: companies } = await query("SELECT * FROM companies");
@@ -260,10 +70,14 @@ export const handlePostAllSentimentRequest = async (date) => {
 	}
 };
 
-export const handlePostAllSentimentForWholeYearRequest = async (year) => {
+export const handlePostAllSentimentForWholeYearRequest = async (
+	year,
+	monthStart,
+	monthEnd
+) => {
 	try {
 		const results = [];
-		const weekdays = generateWeekdaysArray(year);
+		const weekdays = generateWeekdaysArray(year, monthStart, monthEnd);
 		for (const weekday of weekdays) {
 			const result = await handlePostAllSentimentRequest(weekday);
 			results.push(result);
@@ -296,7 +110,7 @@ export const handlePostAllTechnicalRequest = async (date) => {
 	try {
 		const { rows: companies } = await query("SELECT * FROM companies");
 
-		const responses = await processInBatches(companies, 3, 2000, (company) =>
+		const responses = await processInBatches(companies, 1, 2000, (company) =>
 			makeGPTToolsRequest(
 				"gpt-4o-mini",
 				devTechnicalPrompt,
@@ -314,15 +128,95 @@ export const handlePostAllTechnicalRequest = async (date) => {
 	}
 };
 
-export const handlePostAllTechnicalForWholeYearRequest = async (year) => {
+export const handlePostAllTechnicalForWholeYearRequest = async (
+	year,
+	monthStart,
+	monthEnd
+) => {
 	try {
 		const results = [];
-		const weekdays = generateWeekdaysArray(year);
+		const weekdays = generateWeekdaysArray(year, monthStart, monthEnd);
 		for (const weekday of weekdays) {
 			const result = await handlePostAllTechnicalRequest(weekday);
 			results.push(result);
 		}
 		return results;
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
+};
+
+export const getAnalysisData = async ({
+	analysisType,
+	ticker,
+	actionType,
+	dateStart,
+	dateEnd,
+}) => {
+	try {
+		const params = [];
+		const conditions = [];
+
+		if (ticker) {
+			params.push(ticker);
+			conditions.push(`p.fk_company = $${params.length}`);
+		}
+
+		if (actionType) {
+			params.push(actionType);
+			conditions.push(`a.action_type = $${params.length}`);
+		}
+
+		if (dateStart && dateEnd) {
+			if (dateStart === dateEnd) {
+				params.push(dateStart);
+				conditions.push(`a.datetime = $${params.length}`);
+			} else {
+				params.push(dateStart, dateEnd);
+				const idxStart = params.length - 1;
+				const idxEnd = params.length;
+				conditions.push(`a.datetime BETWEEN $${idxStart} AND $${idxEnd}`);
+			}
+		}
+
+		params.push(analysisType);
+		conditions.push(`a.analysis_type = $${params.length}`);
+
+		const whereClause = conditions.length
+			? `WHERE ${conditions.join(" AND ")}`
+			: "";
+
+		const dataLinkTable =
+			analysisType === "technical"
+				? "decisions_technical_data"
+				: "decisions_sentiment_data";
+
+		const queryText = `
+      SELECT json_build_object(
+        'reasons_array', COALESCE(reasons.reasons_array, '[]'::json),
+        'confidence_score', ROUND(d.confidence_score::numeric, 2),
+        'reasoning_summary', d.reasoning_summary,
+        'action', a.action_type,
+        'stop_loss', a.stop_loss,
+        'take_profit', a.take_profit
+      ) AS result
+      FROM actions a
+      JOIN prices p    ON a.fk_price = p.id
+      JOIN decisions d ON a.fk_decision = d.id
+      LEFT JOIN LATERAL (
+        SELECT json_agg(json_build_object(
+          'id', x.fk_${analysisType}_data::text,
+          'reasoning', x.reasoning
+        )) AS reasons_array
+        FROM ${dataLinkTable} x
+        WHERE x.fk_decision = d.id
+      ) reasons ON true
+      ${whereClause}
+      ORDER BY a.datetime DESC;
+    `;
+
+		const response = await query(queryText, params);
+		return response.rows;
 	} catch (error) {
 		throw new ReturnError(error, error.status);
 	}

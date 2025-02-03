@@ -23,6 +23,10 @@ import generateNewsSentimentResponse from "../types/newsSentimentResponse.js";
 import getWebsiteContent from "./getWebsiteContent.js";
 import generateNewsSentimentSummaryResponse from "../types/newsSentimentSummaryResponse.js";
 import extractNewsDataByTicker from "../helper/extractNewsDataByTicker.js";
+import {
+	handlePostSingleSentimentRequest,
+	handlePostSingleTechnicalRequest,
+} from "./handleAnalysisRequests.js";
 
 export const handlePriceDataRequest = async (
 	ticker,
@@ -268,4 +272,30 @@ export const handleNewsSentimentSummaryRequest = async (
 			data: gptResponse.parsed["News Sentiment"],
 		}
 	);
+};
+
+export const handleReproducibilityRequest = async (
+	tickers,
+	dateStart,
+	dateEnd
+) => {
+	try {
+		const start = new Date(dateStart);
+		const end = new Date(dateEnd);
+		const dateArray = [];
+
+		for (let d = start; d <= end; d.setDate(d.getDate() + 1)) {
+			const dateString = d.toISOString().split("T")[0];
+			dateArray.push(dateString);
+		}
+
+		for (const ticker of tickers) {
+			for (const currentDate of dateArray) {
+				await handlePostSingleTechnicalRequest(ticker, currentDate);
+				await handlePostSingleSentimentRequest(ticker, currentDate);
+			}
+		}
+	} catch (error) {
+		throw new ReturnError(error, error.status);
+	}
 };

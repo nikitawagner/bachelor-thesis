@@ -28,6 +28,7 @@ const makeGPTToolsRequest = async (
 		{ role: "user", content: [{ type: "text", text: userPrompt }] },
 	];
 	let retries = 0;
+	const start = Date.now();
 
 	while (retries < 3) {
 		try {
@@ -43,6 +44,8 @@ const makeGPTToolsRequest = async (
 			const finishReason = choice.finish_reason;
 
 			if (finishReason === "stop") {
+				const end = Date.now();
+				const executionTime = (end - start) / 1000;
 				const priceResponse = await getAllPricesByTimespan(
 					ticker,
 					null,
@@ -58,6 +61,8 @@ const makeGPTToolsRequest = async (
 				)[0].id;
 				let tokens = encode(JSON.stringify(messagesArray));
 				let responseTokens = encode(JSON.stringify(choice.message));
+				const inputTokens = tokens.length;
+				const outputTokens = responseTokens.length;
 				console.log("Input Tokens: " + tokens.length);
 				console.log("Output Tokens: " + responseTokens.length);
 
@@ -66,7 +71,10 @@ const makeGPTToolsRequest = async (
 					priceId,
 					currentDate,
 					ticker,
-					analysisType
+					analysisType,
+					inputTokens,
+					outputTokens,
+					executionTime
 				);
 			}
 			messagesArray.push(choice.message);

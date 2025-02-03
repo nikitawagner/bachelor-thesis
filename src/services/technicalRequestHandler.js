@@ -16,17 +16,14 @@ export const handleAddTechnicalRequest = async (
 		const allowedFunctionTypes = [
 			"SMA",
 			"EMA",
-			//"WMA",
-			//"DEMA",
-			//"TEMA",
 			"STOCH",
 			"RSI",
 			"ADX",
 			"ADXR",
 			"MINUS_DI",
 			"PLUS_DI",
-			//"MINUS_DM",
-			//"PLUS_DM",
+			"MINUS_DM",
+			"PLUS_DM",
 			"BBANDS",
 		];
 		if (!allowedFunctionTypes.includes(functionType)) {
