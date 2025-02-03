@@ -110,7 +110,7 @@ export const handlePostAllTechnicalRequest = async (date) => {
 	try {
 		const { rows: companies } = await query("SELECT * FROM companies");
 
-		const responses = await processInBatches(companies, 3, 2000, (company) =>
+		const responses = await processInBatches(companies, 1, 2000, (company) =>
 			makeGPTToolsRequest(
 				"gpt-4o-mini",
 				devTechnicalPrompt,
