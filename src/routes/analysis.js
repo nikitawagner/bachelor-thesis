@@ -9,6 +9,7 @@ import {
 	handlePostSingleTechnicalRequest,
 } from "../services/handleAnalysisRequests.js";
 import { query } from "../db/index.js";
+import ReturnError from "../helper/ReturnError.js";
 
 const analysisRouter = express.Router();
 
@@ -266,4 +267,25 @@ analysisRouter.delete("/reset", async (req, res, next) => {
 	}
 });
 
+analysisRouter.get("/results/:resultType", async (req, res, next) => {
+	try {
+		const { resultType } = req.params;
+		if (
+			resultType !== "profit-loss-ratio" &&
+			resultType !== "average-return-per-trade" &&
+			resultType !== "overall-return"
+		) {
+			throw new ReturnError("Invalid result type", 400);
+		}
+		const { excludedCompanies, includedStrategies } = req.query;
+		const query = `
+			SELECT * FROM ${resultType}_by_cluster(ARRAY[${excludedCompanies}], ARRAY[${includedStrategies}]);
+			ORDER BY analysis_type ASC, closing_strategy_name ASC;
+		`;
+		const response = await query(query);
+		res.json({ message: "Success", response: response.rows });
+	} catch (error) {
+		next(error);
+	}
+});
 export default analysisRouter;
