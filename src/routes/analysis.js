@@ -271,18 +271,28 @@ analysisRouter.get("/results/:resultType", async (req, res, next) => {
 	try {
 		const { resultType } = req.params;
 		if (
-			resultType !== "profit-loss-ratio" &&
-			resultType !== "average-return-per-trade" &&
-			resultType !== "overall-return"
+			resultType !== "get-profit-loss-ratio" &&
+			resultType !== "get-average-return-per-trade" &&
+			resultType !== "get-overall-return"
 		) {
 			throw new ReturnError("Invalid result type", 400);
 		}
 		const { excludedCompanies, includedStrategies } = req.query;
-		const query = `
-			SELECT * FROM ${resultType}_by_cluster(ARRAY[${excludedCompanies}], ARRAY[${includedStrategies}]);
-			ORDER BY analysis_type ASC, closing_strategy_name ASC;
-		`;
-		const response = await query(query);
+		console.log(includedStrategies);
+		const queryText = `
+    SELECT * FROM ${resultType}_by_cluster(
+        ${
+					excludedCompanies.length > 0
+						? `ARRAY[${excludedCompanies}]::text[]`
+						: `'{}'::text[]`
+				}, ARRAY[${includedStrategies}]::text[]
+    )
+    ORDER BY analysis_type ASC, closing_strategy_name ASC;
+`;
+
+		const formattedQuery = queryText.replaceAll("-", "_");
+		console.log(formattedQuery);
+		const response = await query(formattedQuery);
 		res.json({ message: "Success", response: response.rows });
 	} catch (error) {
 		next(error);
