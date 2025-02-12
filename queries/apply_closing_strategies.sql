@@ -6,7 +6,7 @@ DECLARE
     strat  RECORD;
 
     v_close_price    NUMERIC;
-    v_percentage     NUMERIC(5,2);
+    v_percentage     NUMERIC;
     v_result         result_type;
     v_days_to_close  INT;
 BEGIN
@@ -78,6 +78,12 @@ BEGIN
                      / act.open_price_value) * 100,
                     2
                 );
+            END IF;
+
+            IF v_percentage > 999.99 THEN
+                v_percentage := 500;
+            ELSIF v_percentage < -999.99 THEN
+                v_percentage := -500;
             END IF;
 
             v_result := CASE WHEN v_percentage >= 0 THEN 'WIN' ELSE 'LOSS' END;
