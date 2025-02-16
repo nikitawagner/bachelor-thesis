@@ -1,0 +1,956 @@
+{
+  "status": 200,
+  "data": {
+    "items": "16",
+    "sentiment_score_definition": "x <= -0.35: Bearish; -0.35 < x <= -0.15: Somewhat-Bearish; -0.15 < x < 0.15: Neutral; 0.15 <= x < 0.35: Somewhat_Bullish; x >= 0.35: Bullish",
+    "relevance_score_definition": "0 < x <= 1, with a higher score indicating higher relevance.",
+    "feed": [
+      {
+        "title": "Alphabet's Options: A Look at What the Big Money is Thinking - Alphabet  ( NASDAQ:GOOGL ) ",
+        "url": "https://www.benzinga.com/insights/options/24/12/42726490/alphabets-options-a-look-at-what-the-big-money-is-thinking",
+        "time_published": "20241230T164529",
+        "authors": [
+          "Benzinga Insights"
+        ],
+        "summary": "Investors with a lot of money to spend have taken a bullish stance on Alphabet GOOGL. We noticed this today when the trades showed up on publicly available options history that we track here at Benzinga. Whether these are institutions or just wealthy individuals, we don't know.",
+        "banner_image": "https://www.benzinga.com/files/images/story/2024/1735577126_0.png",
+        "source": "Benzinga",
+        "category_within_source": "Markets",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.962106"
+          },
+          {
+            "topic": "Earnings",
+            "relevance_score": "0.538269"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "0.5"
+          },
+          {
+            "topic": "Finance",
+            "relevance_score": "0.5"
+          }
+        ],
+        "overall_sentiment_score": 0.15511,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GS",
+            "relevance_score": "0.063933",
+            "ticker_sentiment_score": "0.03017",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.369685",
+            "ticker_sentiment_score": "0.06097",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "Alphabet CEO Pichai Warns Employees Of High Stakes 2025: 'We Are Facing Scrutiny Across The World' - Alphabet  ( NASDAQ:GOOG ) , Alphabet  ( NASDAQ:GOOGL ) ",
+        "url": "https://www.benzinga.com/tech/24/12/42728730/alphabet-ceo-pichai-warns-employees-of-high-stakes-2025-we-are-facing-scrutiny-across-the-world",
+        "time_published": "20241230T180816",
+        "authors": [
+          "Chris Katje"
+        ],
+        "summary": "Alphabet CEO Sundar Pichai shared warnings for 2025 to the company's more than 100,000 employees recently. Regulatory pressure and the growth of competition were among the key topics covered by Pichai. Get Monthly Picks of Market's Fastest Movers",
+        "banner_image": "https://cdn.benzinga.com/files/images/story/2024/12/30/Alphabet-and-Google-CEO-Sundar-Pichai.jpeg?width=1200&height=800&fit=crop",
+        "source": "Benzinga",
+        "category_within_source": "Trading",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.214378"
+          }
+        ],
+        "overall_sentiment_score": 0.223946,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.306963",
+            "ticker_sentiment_score": "0.223055",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          }
+        ]
+      },
+      {
+        "title": "Watch the Official Delta Force \"Serpentine\" PvE Raid Trailer",
+        "url": "https://www.benzinga.com/pressreleases/24/12/n42726858/watch-the-official-delta-force-serpentine-pve-raid-trailer",
+        "time_published": "20241230T170000",
+        "authors": [
+          "PRNewswire"
+        ],
+        "summary": "LOS ANGELES, Dec. 30, 2024 /PRNewswire/ -- Prepare for an all-new type of Delta Force challenge. Operation Serpentine drops you and your squad behind enemy lines and into a dangerous PvE Raid, available starting January 1, 2025.",
+        "banner_image": "https://www.benzinga.com/next-assets/images/schema-image-default.png",
+        "source": "Benzinga",
+        "category_within_source": "General",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          }
+        ],
+        "overall_sentiment_score": 0.263858,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.2872",
+            "ticker_sentiment_score": "0.241454",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          }
+        ]
+      },
+      {
+        "title": "Trump Administration to Challenge Social Media Censorship, Setting Stage for Conflict with EU Regulations - Alphabet  ( NASDAQ:GOOG ) , Trump Media & Technology  ( NASDAQ:DJT ) ",
+        "url": "https://www.benzinga.com/24/12/42729529/social-media-stocks-react-as-trump-targets-censorship-and-delays-tiktok-ban",
+        "time_published": "20241230T184222",
+        "authors": [
+          "Anusuya Lahiri"
+        ],
+        "summary": "Trump targets \"censorship cartel,\" urging FCC and FTC to restrict social media content moderation. Europe enforces stricter digital laws, contrasting U.S. free speech policies under Trump. Get New Picks of the Market's Top Stocks",
+        "banner_image": "https://cdn.benzinga.com/files/images/story/2024/12/30/What-Happened-_0.jpeg?width=1200&height=800&fit=crop",
+        "source": "Benzinga",
+        "category_within_source": "News",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "0.5"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.108179"
+          },
+          {
+            "topic": "Manufacturing",
+            "relevance_score": "0.5"
+          }
+        ],
+        "overall_sentiment_score": 0,
+        "overall_sentiment_label": "Neutral",
+        "ticker_sentiment": [
+          {
+            "ticker": "NYT",
+            "relevance_score": "0.088472",
+            "ticker_sentiment_score": "-0.164665",
+            "ticker_sentiment_label": "Somewhat-Bearish"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.261117",
+            "ticker_sentiment_score": "-0.299776",
+            "ticker_sentiment_label": "Somewhat-Bearish"
+          },
+          {
+            "ticker": "META",
+            "relevance_score": "0.421485",
+            "ticker_sentiment_score": "-0.239418",
+            "ticker_sentiment_label": "Somewhat-Bearish"
+          },
+          {
+            "ticker": "DJT",
+            "relevance_score": "0.261117",
+            "ticker_sentiment_score": "0.417175",
+            "ticker_sentiment_label": "Bullish"
+          }
+        ]
+      },
+      {
+        "title": "CommVault Stock Rises 26% in Six Months: What Should Investors Do?",
+        "url": "https://www.zacks.com/stock/news/2389541/commvault-stock-rises-26-in-six-months-what-should-investors-do",
+        "time_published": "20241230T150800",
+        "authors": [
+          "Zacks Equity Research"
+        ],
+        "summary": "CVLT stock offers compelling long-term growth opportunities, yet its elevated valuation suggests that short-term gains may be constrained.",
+        "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/43/1261.jpg",
+        "source": "Zacks Commentary",
+        "category_within_source": "n/a",
+        "source_domain": "www.zacks.com",
+        "topics": [
+          {
+            "topic": "Earnings",
+            "relevance_score": "0.938793"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.161647"
+          }
+        ],
+        "overall_sentiment_score": 0.37303,
+        "overall_sentiment_label": "Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "MSFT",
+            "relevance_score": "0.108958",
+            "ticker_sentiment_score": "0.056536",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.215894",
+            "ticker_sentiment_score": "0.331269",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "PSTG",
+            "relevance_score": "0.054607",
+            "ticker_sentiment_score": "0.22519",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "CVLT",
+            "relevance_score": "0.318897",
+            "ticker_sentiment_score": "0.316858",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "ADSK",
+            "relevance_score": "0.108958",
+            "ticker_sentiment_score": "0.137724",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "MANH",
+            "relevance_score": "0.108958",
+            "ticker_sentiment_score": "0.137724",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "DUOL",
+            "relevance_score": "0.054607",
+            "ticker_sentiment_score": "0.027006",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "Top Stock Picks for Week of December 30, 2024",
+        "url": "https://www.zacks.com/stock/news/2389652/top-stock-picks-for-week-of-december-30-2024",
+        "time_published": "20241230T190900",
+        "authors": [
+          "Panel Of Zacks Experts"
+        ],
+        "summary": "A Cash-Rich Company That's Become a Shining Star and a Mobile App Company That's Outperformed its Sector So Far This Year.",
+        "banner_image": "https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png",
+        "source": "Zacks Commentary",
+        "category_within_source": "n/a",
+        "source_domain": "www.zacks.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "0.5"
+          },
+          {
+            "topic": "Finance",
+            "relevance_score": "0.5"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.214378"
+          }
+        ],
+        "overall_sentiment_score": 0.240616,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "MSFT",
+            "relevance_score": "0.11983",
+            "ticker_sentiment_score": "0.118872",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.11983",
+            "ticker_sentiment_score": "0.16565",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "MORN",
+            "relevance_score": "0.11983",
+            "ticker_sentiment_score": "0.118872",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "Rezolve Ai Converts $59 Million in Variable Rate Convertible Loans Before Year-End, Strengthening Financial Position for 2025 - Rezolve AI  ( NASDAQ:RZLV ) ",
+        "url": "https://www.benzinga.com/pressreleases/24/12/g42722793/rezolve-ai-converts-59-million-in-variable-rate-convertible-loans-before-year-end-strengthening-fi",
+        "time_published": "20241230T144335",
+        "authors": [
+          "Globe Newswire"
+        ],
+        "summary": "NEW YORK, Dec. 30, 2024 ( GLOBE NEWSWIRE ) -- Rezolve Ai RZLV, a leader in AI-driven retail solutions, announces the successful conversion of variable rate convertible loans, totalling approximately $59 million, before the end of 2024.",
+        "banner_image": "https://ml.globenewswire.com/media/d48c65ef-dfff-4285-958b-06dcf212c171/small/logo-dark-png.png",
+        "source": "Benzinga",
+        "category_within_source": "General",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Earnings",
+            "relevance_score": "0.360215"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          }
+        ],
+        "overall_sentiment_score": 0.402261,
+        "overall_sentiment_label": "Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "MSFT",
+            "relevance_score": "0.108958",
+            "ticker_sentiment_score": "0.202771",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "RZLV",
+            "relevance_score": "0.726873",
+            "ticker_sentiment_score": "0.608267",
+            "ticker_sentiment_label": "Bullish"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.108958",
+            "ticker_sentiment_score": "0.202771",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          }
+        ]
+      },
+      {
+        "title": "SquareX Researchers Expose OAuth Attack on Chrome Extensions Days Before Major Breach",
+        "url": "https://www.benzinga.com/pressreleases/24/12/g42723457/squarex-researchers-expose-oauth-attack-on-chrome-extensions-days-before-major-breach",
+        "time_published": "20241230T150000",
+        "authors": [
+          "Globe Newswire"
+        ],
+        "summary": "PALO ALTO, Calif., Dec. 30, 2024 ( GLOBE NEWSWIRE ) -- SquareX, an industry-first Browser Detection and Response ( BDR ) solution, leads the way in browser security. About a week ago, SquareX reported large-scale attacks targeting Chrome Extension developers aimed at taking over the Chrome ...",
+        "banner_image": "https://ml.globenewswire.com/Resource/Download/8c70ea64-f0ca-4fc4-9039-6f5b15a0adf2/screenshot-2024-12-30-150129.png",
+        "source": "Benzinga",
+        "category_within_source": "General",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          }
+        ],
+        "overall_sentiment_score": -0.207871,
+        "overall_sentiment_label": "Somewhat-Bearish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.080728",
+            "ticker_sentiment_score": "-0.115279",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "GameStop's Comeback, Trump's Meme Stock Magic: Retail Vs. Wall Street 2024 - AMC Enter Hldgs  ( NYSE:AMC ) , Chewy  ( NYSE:CHWY ) ",
+        "url": "https://www.benzinga.com/general/social-media/24/12/42730341/gamestops-comeback-trumps-meme-stock-magic-retail-vs-wall-street-2024",
+        "time_published": "20241230T192235",
+        "authors": [
+          "Surbhi Jain"
+        ],
+        "summary": "The saga of meme stocks in 2024 proved once again that retail investors, armed with social media and a touch of chaos, are a force to reckon with. From GameStop Corp.'s GME comeback to Donald Trump-inspired trading frenzies, the year showcased how \"diamond hands\" and internet-driven hype continue ...",
+        "banner_image": "https://cdn.benzinga.com/files/images/story/2024/12/30/Display-Of-Stock-Market-Quotes-With-City.jpeg?width=1200&height=800&fit=crop",
+        "source": "Benzinga",
+        "category_within_source": "General",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Retail & Wholesale",
+            "relevance_score": "0.333333"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.503496"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "0.333333"
+          },
+          {
+            "topic": "Finance",
+            "relevance_score": "0.333333"
+          }
+        ],
+        "overall_sentiment_score": 0.245242,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.080188",
+            "ticker_sentiment_score": "0.050194",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "TRMNF",
+            "relevance_score": "0.080188",
+            "ticker_sentiment_score": "-0.089736",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "BAC",
+            "relevance_score": "0.080188",
+            "ticker_sentiment_score": "0.187665",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "PHUN",
+            "relevance_score": "0.237358",
+            "ticker_sentiment_score": "0.13956",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "RDDT",
+            "relevance_score": "0.159569",
+            "ticker_sentiment_score": "0.301669",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "AMC",
+            "relevance_score": "0.237358",
+            "ticker_sentiment_score": "-0.022116",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "CHWY",
+            "relevance_score": "0.237358",
+            "ticker_sentiment_score": "0.540979",
+            "ticker_sentiment_label": "Bullish"
+          },
+          {
+            "ticker": "COIN",
+            "relevance_score": "0.159569",
+            "ticker_sentiment_score": "0.215179",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "GME",
+            "relevance_score": "0.385286",
+            "ticker_sentiment_score": "0.225457",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "DJT",
+            "relevance_score": "0.159569",
+            "ticker_sentiment_score": "0.103969",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "PLTR",
+            "relevance_score": "0.159569",
+            "ticker_sentiment_score": "0.215179",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          }
+        ]
+      },
+      {
+        "title": "Rezolve Ai Converts $59 Million in Variable Rate Convertible Loans Before Year-End, Strengthening Financial Position for 2025",
+        "url": "https://www.globenewswire.com/news-release/2024/12/30/3002733/0/en/Rezolve-Ai-Converts-59-Million-in-Variable-Rate-Convertible-Loans-Before-Year-End-Strengthening-Financial-Position-for-2025.html",
+        "time_published": "20241230T144300",
+        "authors": [
+          "Rezolve AI Ltd"
+        ],
+        "summary": "NEW YORK, Dec. 30, 2024 ( GLOBE NEWSWIRE ) -- Rezolve Ai ( NASDAQ: RZLV ) , a leader in AI-driven retail solutions, announces the successful conversion of variable rate convertible loans, totalling approximately $59 million, before the end of 2024.",
+        "banner_image": "https://ml.globenewswire.com/Resource/Download/d48c65ef-dfff-4285-958b-06dcf212c171",
+        "source": "GlobeNewswire",
+        "category_within_source": "n/a",
+        "source_domain": "www.globenewswire.com",
+        "topics": [
+          {
+            "topic": "Earnings",
+            "relevance_score": "0.360215"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.158519"
+          }
+        ],
+        "overall_sentiment_score": 0.325077,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "MSFT",
+            "relevance_score": "0.078099",
+            "ticker_sentiment_score": "0.194181",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "RZLV",
+            "relevance_score": "0.50746",
+            "ticker_sentiment_score": "0.403599",
+            "ticker_sentiment_label": "Bullish"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.078099",
+            "ticker_sentiment_score": "0.194181",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          }
+        ]
+      },
+      {
+        "title": "USPS Stamps Its Approval on Allen Toussaint's Musical Legacy with 48th Black Heritage Stamp",
+        "url": "https://www.benzinga.com/pressreleases/24/12/n42725365/usps-stamps-its-approval-on-allen-toussaints-musical-legacy-with-48th-black-heritage-stamp",
+        "time_published": "20241230T160000",
+        "authors": [
+          "PRNewswire"
+        ],
+        "summary": "WASHINGTON, Dec. 30, 2024 /PRNewswire/ -- The 48th stamp in the Black Heritage series honors the legendary musician and songwriter Allen Toussaint ( 1938-2015 ) . An icon of New Orleans music, Toussaint's contributions to rhythm and blues ( R&B ) , jazz, and rock 'n' roll have left an enduring ...",
+        "banner_image": "https://mma.prnewswire.com/media/2588550/Allen_Toussaint.jpg",
+        "source": "Benzinga",
+        "category_within_source": "General",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          }
+        ],
+        "overall_sentiment_score": 0.362069,
+        "overall_sentiment_label": "Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.065866",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "META",
+            "relevance_score": "0.065866",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "LiveOne's  ( Nasdaq: LVO )  Partnership with Tesla Exceeds 450k Users, Including 100k+ New Ad-Supported Users",
+        "url": "https://www.globenewswire.com/news-release/2024/12/30/3002725/0/en/LiveOne-s-Nasdaq-LVO-Partnership-with-Tesla-Exceeds-450k-Users-Including-100k-New-Ad-Supported-Users.html",
+        "time_published": "20241230T142800",
+        "authors": [
+          "Inc.",
+          "Liveone"
+        ],
+        "summary": "- Tesla Users Averaged 2.8x Engagements & 50+ Minutes of Listening Daily ...",
+        "banner_image": "https://ml.globenewswire.com/Resource/Download/f8d31287-dff9-48a4-b04d-fa3f60642d1f",
+        "source": "GlobeNewswire",
+        "category_within_source": "n/a",
+        "source_domain": "www.globenewswire.com",
+        "topics": [
+          {
+            "topic": "Retail & Wholesale",
+            "relevance_score": "0.333333"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.744043"
+          },
+          {
+            "topic": "Manufacturing",
+            "relevance_score": "0.333333"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "0.333333"
+          }
+        ],
+        "overall_sentiment_score": 0.186443,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "SSNLF",
+            "relevance_score": "0.051663",
+            "ticker_sentiment_score": "0.093811",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.051663",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "META",
+            "relevance_score": "0.051663",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "ROKU",
+            "relevance_score": "0.051663",
+            "ticker_sentiment_score": "0.093811",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "TSLA",
+            "relevance_score": "0.204503",
+            "ticker_sentiment_score": "0.227413",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "LVO",
+            "relevance_score": "0.523995",
+            "ticker_sentiment_score": "0.25723",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "SPOT",
+            "relevance_score": "0.051663",
+            "ticker_sentiment_score": "0.093811",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "PODC",
+            "relevance_score": "0.051663",
+            "ticker_sentiment_score": "0.093811",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "Bitcoin May Exceed $250K Amid Halving And US Adoption; Taiwan Semi Expands 2-nm Chips; Boeing Drops On Crash Scrutiny - Top Headlines Today While US Slept",
+        "url": "https://www.benzinga.com/24/12/42723114/bitcoin-may-exceed-250k-amid-halving-and-us-adoption-taiwan-semi-expands-2-nm-chips-boeing-drops-on-crash-scrutin",
+        "time_published": "20241230T145323",
+        "authors": [
+          "Akanksha Bakshi"
+        ],
+        "summary": "Ethereum To Outperform Bitcoin In Q1 2025 For These 3 Reasons, Whale Trader Says Janover To Accept Bitcoin Payments And Consider Crypto For Treasury Allocation Bitcoin Could Surge Past $250,000, Says Tom Lee Citing BTC Halving Cycles And US Government Adoption Bitcoin Set For January Spike?",
+        "banner_image": "https://cdn.benzinga.com/files/images/story/2024/12/30/Bitcoin-Halving-Shutterstock.jpeg?width=1200&height=800&fit=crop",
+        "source": "Benzinga",
+        "category_within_source": "News",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Life Sciences",
+            "relevance_score": "0.166667"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "0.166667"
+          },
+          {
+            "topic": "Finance",
+            "relevance_score": "0.166667"
+          },
+          {
+            "topic": "Retail & Wholesale",
+            "relevance_score": "0.166667"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.503496"
+          },
+          {
+            "topic": "Manufacturing",
+            "relevance_score": "0.166667"
+          },
+          {
+            "topic": "Real Estate & Construction",
+            "relevance_score": "0.166667"
+          }
+        ],
+        "overall_sentiment_score": 0.063783,
+        "overall_sentiment_label": "Neutral",
+        "ticker_sentiment": [
+          {
+            "ticker": "VINC",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "0.134945",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "NVDA",
+            "relevance_score": "0.239541",
+            "ticker_sentiment_score": "0.243793",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "JNVR",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "0.327354",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "TSLA",
+            "relevance_score": "0.192694",
+            "ticker_sentiment_score": "0.033124",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "FFIE",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "AXSM",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "-0.165923",
+            "ticker_sentiment_label": "Somewhat-Bearish"
+          },
+          {
+            "ticker": "BA",
+            "relevance_score": "0.097062",
+            "ticker_sentiment_score": "-0.239445",
+            "ticker_sentiment_label": "Somewhat-Bearish"
+          },
+          {
+            "ticker": "WMT",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "CRYPTO:BTC",
+            "relevance_score": "0.416844",
+            "ticker_sentiment_score": "0.369406",
+            "ticker_sentiment_label": "Bullish"
+          },
+          {
+            "ticker": "CRYPTO:ETH",
+            "relevance_score": "0.097062",
+            "ticker_sentiment_score": "0.08741",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "CRYPTO:DOGE",
+            "relevance_score": "0.145145",
+            "ticker_sentiment_score": "0.247469",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "CRYPTO:KSM",
+            "relevance_score": "0.048621",
+            "ticker_sentiment_score": "0.04817",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "The Snowstorm, a live, almost-nightly, interactive broadcast from PromoHomo.TV®, premiering the day after Trump's inauguration, to focus on \"Amplifying Voices of the Resistance\"",
+        "url": "https://www.benzinga.com/pressreleases/24/12/n42725484/the-snowstorm-a-live-almost-nightly-interactive-broadcast-from-promohomo-tv-premiering-the-day-aft",
+        "time_published": "20241230T160500",
+        "authors": [
+          "PRNewswire"
+        ],
+        "summary": "Additional PromoHomo.TV® lineup includes Notes From Hollywood®, HIGHRPOWRD®, Hot In Palm Springs, Outinerary® and restored episodes of the historic public access television show, Tinseltown's Queer!",
+        "banner_image": "https://mma.prnewswire.com/media/2543884/PROMOHOME_square_white_R_Logo.jpg",
+        "source": "Benzinga",
+        "category_within_source": "General",
+        "source_domain": "www.benzinga.com",
+        "topics": [
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          }
+        ],
+        "overall_sentiment_score": 0.396425,
+        "overall_sentiment_label": "Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.046006",
+            "ticker_sentiment_score": "0.184244",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          }
+        ]
+      },
+      {
+        "title": "Wall Street Stories of 2024 Likely to Stay Hot in 2025: Key Picks",
+        "url": "https://www.zacks.com/stock/news/2389552/wall-street-stories-of-2024-likely-to-stay-hot-in-2025-key-picks",
+        "time_published": "20241230T152400",
+        "authors": [
+          "Sweta Killa"
+        ],
+        "summary": "Here, we discuss some top Wall Street events of 2024 that are expected to have an impact in 2025 as well.",
+        "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/91/69871.jpg",
+        "source": "Zacks Commentary",
+        "category_within_source": "n/a",
+        "source_domain": "www.zacks.com",
+        "topics": [
+          {
+            "topic": "Energy & Transportation",
+            "relevance_score": "0.2"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "0.2"
+          },
+          {
+            "topic": "Finance",
+            "relevance_score": "0.2"
+          },
+          {
+            "topic": "Blockchain",
+            "relevance_score": "0.576289"
+          },
+          {
+            "topic": "Economy - Monetary",
+            "relevance_score": "0.451494"
+          },
+          {
+            "topic": "Retail & Wholesale",
+            "relevance_score": "0.2"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.99393"
+          },
+          {
+            "topic": "Manufacturing",
+            "relevance_score": "0.2"
+          },
+          {
+            "topic": "Earnings",
+            "relevance_score": "0.769861"
+          }
+        ],
+        "overall_sentiment_score": 0.31216,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.036255",
+            "ticker_sentiment_score": "0.053615",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "META",
+            "relevance_score": "0.072435",
+            "ticker_sentiment_score": "0.15927",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "NVDA",
+            "relevance_score": "0.072435",
+            "ticker_sentiment_score": "0.15927",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "AAPL",
+            "relevance_score": "0.072435",
+            "ticker_sentiment_score": "0.15927",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "TSLA",
+            "relevance_score": "0.072435",
+            "ticker_sentiment_score": "0.15927",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "HLI",
+            "relevance_score": "0.108466",
+            "ticker_sentiment_score": "0.150338",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "VST",
+            "relevance_score": "0.072435",
+            "ticker_sentiment_score": "0.15927",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "AMZN",
+            "relevance_score": "0.072435",
+            "ticker_sentiment_score": "0.15927",
+            "ticker_sentiment_label": "Somewhat-Bullish"
+          },
+          {
+            "ticker": "COIN",
+            "relevance_score": "0.108466",
+            "ticker_sentiment_score": "0.147655",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "GME",
+            "relevance_score": "0.108466",
+            "ticker_sentiment_score": "0.143062",
+            "ticker_sentiment_label": "Neutral"
+          },
+          {
+            "ticker": "CRYPTO:BTC",
+            "relevance_score": "0.036255",
+            "ticker_sentiment_score": "0.131936",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      },
+      {
+        "title": "Comstock Fuels Executes License Agreement With Gresham's Eastern Ltd",
+        "url": "https://www.globenewswire.com/news-release/2024/12/30/3002900/0/en/Comstock-Fuels-Executes-License-Agreement-With-Gresham-s-Eastern-Ltd.html",
+        "time_published": "20241230T213000",
+        "authors": [
+          "Comstock Inc."
+        ],
+        "summary": "Bringing Renewable Fuel Production to Pakistan with Sustainable Biomass Refining Solutions Bringing Renewable Fuel Production to Pakistan with Sustainable Biomass Refining Solutions ...",
+        "banner_image": "https://ml.globenewswire.com/Resource/Download/23ea433d-b7af-4e94-8100-d1933b728e02",
+        "source": "GlobeNewswire",
+        "category_within_source": "n/a",
+        "source_domain": "www.globenewswire.com",
+        "topics": [
+          {
+            "topic": "Economy - Monetary",
+            "relevance_score": "0.158519"
+          },
+          {
+            "topic": "Financial Markets",
+            "relevance_score": "0.990893"
+          },
+          {
+            "topic": "Earnings",
+            "relevance_score": "0.158519"
+          },
+          {
+            "topic": "Technology",
+            "relevance_score": "1.0"
+          }
+        ],
+        "overall_sentiment_score": 0.245612,
+        "overall_sentiment_label": "Somewhat-Bullish",
+        "ticker_sentiment": [
+          {
+            "ticker": "GOOG",
+            "relevance_score": "0.019147",
+            "ticker_sentiment_score": "0.0",
+            "ticker_sentiment_label": "Neutral"
+          }
+        ]
+      }
+    ]
+  },
+  "statusText": "OK"
+}

@@ -1,0 +1,1407 @@
+=== Comparison Report of Trade Data Across Arrays ===
+
+Company: AAPL
+  Analysis Type: technical
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 128, Losses: 32
+      Array 2: Wins: 129, Losses: 31
+      Array 3: Wins: 128, Losses: 32
+      Array 4: Wins: 128, Losses: 32
+      Array 5: Wins: 128, Losses: 32
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_3_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_2_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_1_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: take_profit
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_5_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 4, Losses: 1
+      Strategy: day_6_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_7_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_8_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_9_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_10_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_11_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 4, Losses: 1
+      Strategy: day_12_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_13_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_14_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_15_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_16_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_17_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_18_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_19_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_20_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_21_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_22_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_23_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_24_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 4, Losses: 1
+      Strategy: day_25_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_26_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_27_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_28_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_29_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_30_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 5, Losses: 0
+        Array 5: Wins: 5, Losses: 0
+
+  Analysis Type: sentiment
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 120, Losses: 35
+      Array 2: Wins: 91, Losses: 33
+      Array 3: Wins: 120, Losses: 35
+      Array 4: Wins: 91, Losses: 33
+      Array 5: Wins: 92, Losses: 32
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_3_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_2_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_1_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_5_close
+        Array 1: Wins: 5, Losses: 0
+        Array 2: Wins: 4, Losses: 0
+        Array 3: Wins: 5, Losses: 0
+        Array 4: Wins: 4, Losses: 0
+        Array 5: Wins: 4, Losses: 0
+      Strategy: day_6_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_7_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_8_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_9_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_10_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_11_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 2, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 2
+        Array 5: Wins: 2, Losses: 2
+      Strategy: day_12_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_13_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_14_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_15_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_16_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_17_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_18_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 2, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 2
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_19_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_20_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_21_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_22_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 2, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 2
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_23_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_24_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 2, Losses: 2
+      Strategy: day_25_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_26_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_27_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_28_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_29_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+      Strategy: day_30_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 3, Losses: 1
+        Array 3: Wins: 4, Losses: 1
+        Array 4: Wins: 3, Losses: 1
+        Array 5: Wins: 3, Losses: 1
+
+
+Company: XOM
+  Analysis Type: technical
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 17, Losses: 143
+      Array 2: Wins: 17, Losses: 143
+      Array 3: Wins: 17, Losses: 143
+      Array 4: Wins: 17, Losses: 143
+      Array 5: Wins: 18, Losses: 142
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_3_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_2_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_1_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: take_profit
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_5_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_6_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_7_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_8_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_9_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_10_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_11_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_12_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_13_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_14_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_15_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_16_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_17_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_18_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_19_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_20_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_21_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_22_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_23_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_24_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_25_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_26_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_27_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_28_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_29_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_30_close
+        Array 1: Wins: 0, Losses: 5
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 0, Losses: 5
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+
+
+Company: DKNG
+  Analysis Type: technical
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 126, Losses: 34
+      Array 2: Wins: 126, Losses: 34
+      Array 3: Wins: 96, Losses: 64
+      Array 4: Wins: 66, Losses: 94
+      Array 5: Wins: 96, Losses: 64
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_3_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_2_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_1_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 3, Losses: 2
+      Strategy: take_profit
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_5_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_6_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_7_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_8_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_9_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_10_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_11_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_12_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_13_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_14_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_15_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_16_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_17_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_18_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_19_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_20_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_21_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_22_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_23_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_24_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_25_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_26_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_27_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_28_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_29_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_30_close
+        Array 1: Wins: 4, Losses: 1
+        Array 2: Wins: 4, Losses: 1
+        Array 3: Wins: 3, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+
+  Analysis Type: sentiment
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 30, Losses: 1
+      Array 2: Wins: 30, Losses: 1
+      Array 3: Wins: 30, Losses: 1
+      Array 4: Wins: 30, Losses: 1
+      Array 5: Wins: 30, Losses: 1
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_3_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_2_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_1_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_close
+        Array 1: Wins: 0, Losses: 1
+        Array 2: Wins: 0, Losses: 1
+        Array 3: Wins: 0, Losses: 1
+        Array 4: Wins: 0, Losses: 1
+        Array 5: Wins: 0, Losses: 1
+      Strategy: day_5_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_6_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_7_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_8_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_9_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_10_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_11_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_12_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_13_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_14_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_15_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_16_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_17_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_18_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_19_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_20_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_21_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_22_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_23_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_24_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_25_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_26_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_27_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_28_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_29_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+      Strategy: day_30_close
+        Array 1: Wins: 1, Losses: 0
+        Array 2: Wins: 1, Losses: 0
+        Array 3: Wins: 1, Losses: 0
+        Array 4: Wins: 1, Losses: 0
+        Array 5: Wins: 1, Losses: 0
+
+
+Company: IBIO
+  Analysis Type: technical
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 54, Losses: 106
+      Array 2: Wins: 51, Losses: 109
+      Array 3: Wins: 61, Losses: 67
+      Array 4: Wins: 50, Losses: 110
+      Array 5: Wins: 50, Losses: 110
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_3_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_2_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_1_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: take_profit
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_5_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_6_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_7_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 0, Losses: 5
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_8_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_9_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_10_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_11_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_12_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_13_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_14_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_15_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_16_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_17_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_18_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_19_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_20_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_21_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_22_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 3, Losses: 2
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_23_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_24_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_25_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_26_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_27_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_28_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_29_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_30_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 2, Losses: 2
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 1, Losses: 4
+
+
+Company: MRK
+  Analysis Type: technical
+    Overall Wins/Losses per Array:
+      Array 1: Wins: 70, Losses: 90
+      Array 2: Wins: 74, Losses: 86
+      Array 3: Wins: 16, Losses: 112
+      Array 4: Wins: 46, Losses: 114
+      Array 5: Wins: 73, Losses: 87
+    Closing Strategy Breakdown per Array:
+      Strategy: day_4_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_3_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_2_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_1_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 5, Losses: 0
+      Strategy: day_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 5, Losses: 0
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 5, Losses: 0
+      Strategy: take_profit
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 0, Losses: 5
+        Array 5: Wins: 0, Losses: 5
+      Strategy: day_5_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_6_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_7_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_8_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_9_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_10_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_11_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_12_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_13_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_14_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_15_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_16_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_17_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_18_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_19_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_20_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_21_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_22_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_23_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_24_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_25_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_26_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_27_close
+        Array 1: Wins: 2, Losses: 3
+        Array 2: Wins: 2, Losses: 3
+        Array 3: Wins: 0, Losses: 4
+        Array 4: Wins: 1, Losses: 4
+        Array 5: Wins: 2, Losses: 3
+      Strategy: day_28_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 1, Losses: 4
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 1, Losses: 4
+      Strategy: day_29_close
+        Array 1: Wins: 1, Losses: 4
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 1, Losses: 3
+        Array 4: Wins: 2, Losses: 3
+        Array 5: Wins: 3, Losses: 2
+      Strategy: day_30_close
+        Array 1: Wins: 3, Losses: 2
+        Array 2: Wins: 3, Losses: 2
+        Array 3: Wins: 3, Losses: 1
+        Array 4: Wins: 4, Losses: 1
+        Array 5: Wins: 3, Losses: 2
+
+

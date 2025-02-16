@@ -1,0 +1,160 @@
+=== Trade Data Statistics Report ===
+
+Company: AAPL
+  Analysis Type: technical
+    Overall Wins:
+      Max: 24, Min: 23, Average: 23.20, Std Dev: 0.40
+    Overall Losses:
+      Max: 2, Min: 1, Average: 1.80, Std Dev: 0.40
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 5, Min: 5, Average: 5.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: day_2_close
+        Wins:   Max: 5, Min: 5, Average: 5.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: day_1_close
+        Wins:   Max: 5, Min: 5, Average: 5.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: day_close
+        Wins:   Max: 5, Min: 5, Average: 5.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: take_profit
+        Wins:   Max: 4, Min: 3, Average: 3.20, Std Dev: 0.40
+        Losses: Max: 2, Min: 1, Average: 1.80, Std Dev: 0.40
+
+  Analysis Type: sentiment
+    Overall Wins:
+      Max: 16, Min: 12, Average: 13.60, Std Dev: 1.96
+    Overall Losses:
+      Max: 4, Min: 4, Average: 4.00, Std Dev: 0.00
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 4, Min: 3, Average: 3.40, Std Dev: 0.49
+        Losses: Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+      Strategy: day_2_close
+        Wins:   Max: 4, Min: 3, Average: 3.40, Std Dev: 0.49
+        Losses: Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+      Strategy: day_1_close
+        Wins:   Max: 4, Min: 3, Average: 3.40, Std Dev: 0.49
+        Losses: Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+      Strategy: day_close
+        Wins:   Max: 4, Min: 3, Average: 3.40, Std Dev: 0.49
+        Losses: Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+
+
+Company: XOM
+  Analysis Type: technical
+    Overall Wins:
+      Max: 11, Min: 10, Average: 10.20, Std Dev: 0.40
+    Overall Losses:
+      Max: 15, Min: 14, Average: 14.80, Std Dev: 0.40
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+        Losses: Max: 4, Min: 4, Average: 4.00, Std Dev: 0.00
+      Strategy: day_2_close
+        Wins:   Max: 3, Min: 3, Average: 3.00, Std Dev: 0.00
+        Losses: Max: 2, Min: 2, Average: 2.00, Std Dev: 0.00
+      Strategy: day_1_close
+        Wins:   Max: 3, Min: 3, Average: 3.00, Std Dev: 0.00
+        Losses: Max: 2, Min: 2, Average: 2.00, Std Dev: 0.00
+      Strategy: day_close
+        Wins:   Max: 3, Min: 3, Average: 3.00, Std Dev: 0.00
+        Losses: Max: 2, Min: 2, Average: 2.00, Std Dev: 0.00
+      Strategy: take_profit
+        Wins:   Max: 1, Min: 0, Average: 0.20, Std Dev: 0.40
+        Losses: Max: 5, Min: 4, Average: 4.80, Std Dev: 0.40
+
+
+Company: DKNG
+  Analysis Type: technical
+    Overall Wins:
+      Max: 18, Min: 12, Average: 15.60, Std Dev: 2.24
+    Overall Losses:
+      Max: 13, Min: 7, Average: 9.40, Std Dev: 2.24
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 4, Min: 2, Average: 3.20, Std Dev: 0.75
+        Losses: Max: 3, Min: 1, Average: 1.80, Std Dev: 0.75
+      Strategy: day_2_close
+        Wins:   Max: 4, Min: 2, Average: 3.20, Std Dev: 0.75
+        Losses: Max: 3, Min: 1, Average: 1.80, Std Dev: 0.75
+      Strategy: day_1_close
+        Wins:   Max: 4, Min: 2, Average: 3.20, Std Dev: 0.75
+        Losses: Max: 3, Min: 1, Average: 1.80, Std Dev: 0.75
+      Strategy: day_close
+        Wins:   Max: 4, Min: 2, Average: 2.80, Std Dev: 0.75
+        Losses: Max: 3, Min: 1, Average: 2.20, Std Dev: 0.75
+      Strategy: take_profit
+        Wins:   Max: 4, Min: 2, Average: 3.20, Std Dev: 0.75
+        Losses: Max: 3, Min: 1, Average: 1.80, Std Dev: 0.75
+
+  Analysis Type: sentiment
+    Overall Wins:
+      Max: 3, Min: 3, Average: 3.00, Std Dev: 0.00
+    Overall Losses:
+      Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: day_2_close
+        Wins:   Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: day_1_close
+        Wins:   Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+        Losses: Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+      Strategy: day_close
+        Wins:   Max: 0, Min: 0, Average: 0.00, Std Dev: 0.00
+        Losses: Max: 1, Min: 1, Average: 1.00, Std Dev: 0.00
+
+
+Company: IBIO
+  Analysis Type: technical
+    Overall Wins:
+      Max: 9, Min: 6, Average: 7.40, Std Dev: 1.36
+    Overall Losses:
+      Max: 19, Min: 11, Average: 16.60, Std Dev: 3.01
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 3, Min: 0, Average: 0.80, Std Dev: 1.17
+        Losses: Max: 5, Min: 2, Average: 4.00, Std Dev: 1.26
+      Strategy: day_2_close
+        Wins:   Max: 2, Min: 1, Average: 1.40, Std Dev: 0.49
+        Losses: Max: 4, Min: 2, Average: 3.40, Std Dev: 0.80
+      Strategy: day_1_close
+        Wins:   Max: 2, Min: 1, Average: 1.80, Std Dev: 0.40
+        Losses: Max: 4, Min: 2, Average: 3.00, Std Dev: 0.63
+      Strategy: day_close
+        Wins:   Max: 3, Min: 2, Average: 2.80, Std Dev: 0.40
+        Losses: Max: 3, Min: 1, Average: 2.00, Std Dev: 0.63
+      Strategy: take_profit
+        Wins:   Max: 1, Min: 0, Average: 0.60, Std Dev: 0.49
+        Losses: Max: 5, Min: 3, Average: 4.20, Std Dev: 0.75
+
+
+Company: MRK
+  Analysis Type: technical
+    Overall Wins:
+      Max: 16, Min: 8, Average: 12.40, Std Dev: 2.87
+    Overall Losses:
+      Max: 14, Min: 9, Average: 11.60, Std Dev: 1.85
+    Closing Strategy Breakdown:
+      Strategy: day_3_close
+        Wins:   Max: 3, Min: 1, Average: 2.40, Std Dev: 0.80
+        Losses: Max: 3, Min: 2, Average: 2.40, Std Dev: 0.49
+      Strategy: day_2_close
+        Wins:   Max: 2, Min: 1, Average: 1.60, Std Dev: 0.49
+        Losses: Max: 4, Min: 3, Average: 3.20, Std Dev: 0.40
+      Strategy: day_1_close
+        Wins:   Max: 5, Min: 3, Average: 4.00, Std Dev: 0.89
+        Losses: Max: 2, Min: 0, Average: 0.80, Std Dev: 0.75
+      Strategy: day_close
+        Wins:   Max: 5, Min: 3, Average: 4.00, Std Dev: 0.89
+        Losses: Max: 2, Min: 0, Average: 0.80, Std Dev: 0.75
+      Strategy: take_profit
+        Wins:   Max: 1, Min: 0, Average: 0.40, Std Dev: 0.49
+        Losses: Max: 5, Min: 4, Average: 4.40, Std Dev: 0.49
+
+

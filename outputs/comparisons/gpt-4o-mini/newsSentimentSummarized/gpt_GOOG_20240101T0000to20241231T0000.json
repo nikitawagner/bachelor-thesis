@@ -1,0 +1,26 @@
+{
+  "duration": "4.540959458000026 seconds",
+  "data": [
+    {
+      "title": "Alphabet's Options: A Look at What the Big Money is Thinking - Alphabet  ( NASDAQ:GOOGL )",
+      "url": "https://www.benzinga.com/insights/options/24/12/42726490/alphabets-options-a-look-at-what-the-big-money-is-thinking",
+      "summaryOfArticleContent": "Recent options trading data indicates a bullish sentiment among large investors regarding Alphabet (GOOGL), with 27 call trades significantly outpacing 6 put trades. The total amount for call options reached approximately $3.93 million, suggesting strong investor confidence in the stock's future performance. This trend often signals that informed investors anticipate positive developments for the company.",
+      "sentimentScore": "0.750000",
+      "relevanceScore": "0.900000"
+    },
+    {
+      "title": "Alphabet CEO Pichai Warns Employees Of High Stakes 2025: 'We Are Facing Scrutiny Across The World' - Alphabet  ( NASDAQ:GOOG ) , Alphabet  ( NASDAQ:GOOGL )",
+      "url": "https://www.benzinga.com/tech/24/12/42728730/alphabet-ceo-pichai-warns-employees-of-high-stakes-2025-we-are-facing-scrutiny-across-the-world",
+      "summaryOfArticleContent": "CEO Sundar Pichai highlighted significant challenges for Alphabet in 2025, including regulatory scrutiny and competition in AI, emphasizing the need for rapid innovation. He acknowledged the pressure from the Department of Justice regarding potential divestitures, which could impact the company's operations. Despite these challenges, Pichai expressed optimism about launching new AI features, indicating a focus on growth and adaptation.",
+      "sentimentScore": "-0.200000",
+      "relevanceScore": "0.950000"
+    },
+    {
+      "title": "Trump Administration to Challenge Social Media Censorship, Setting Stage for Conflict with EU Regulations - Alphabet  ( NASDAQ:GOOG ) , Trump Media & Technology  ( NASDAQ:DJT )",
+      "url": "https://www.benzinga.com/24/12/42729529/social-media-stocks-react-as-trump-targets-censorship-and-delays-tiktok-ban",
+      "summaryOfArticleContent": "The Trump administration's plans to challenge social media censorship could lead to increased regulatory scrutiny for platforms like YouTube, owned by Alphabet. This move contrasts with stricter EU regulations, potentially complicating Alphabet's operational landscape. The stock experienced a slight decline, reflecting investor concerns over the implications of these regulatory challenges.",
+      "sentimentScore": "-0.300000",
+      "relevanceScore": "0.800000"
+    }
+  ]
+}
