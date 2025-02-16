@@ -1,0 +1,2394 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BA",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/v1/comparison/price-data/{ticker}/{dateStart}/{dateEnd}/{model}": {
+      "get": {
+        "summary": "PriceComparison",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "Ticker of the stock",
+            "required": true,
+            "example": "IBM",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "date where data starts",
+            "required": true,
+            "example": "2024-01-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "date where data end",
+            "required": true,
+            "example": "2024-12-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "model",
+            "in": "path",
+            "description": "gpt model",
+            "required": true,
+            "example": "gpt-4o-mini",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/comparison/news-sentiment/{ticker}/{dateStart}/{dateEnd}/{model}/{sort}/{limit}": {
+      "get": {
+        "summary": "NewsSentimentComparison",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "Ticker of the stock",
+            "required": true,
+            "example": "IBM",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "date where data starts",
+            "required": true,
+            "example": "2024-01-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "date where data end",
+            "required": true,
+            "example": "2024-12-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "model",
+            "in": "path",
+            "description": "gpt model",
+            "required": true,
+            "example": "gpt-4o-mini",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "path",
+            "description": "LATEST, EARLIEST, RELEVANCE",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "1, ..., 1000",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/comparison/news-sentiment-summary/{ticker}/{dateStart}/{dateEnd}/{model}/{sort}/{limit}": {
+      "get": {
+        "summary": "NewsSentimentSummarizeComparison",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "Ticker of the stock",
+            "required": true,
+            "example": "IBM",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "date where data starts",
+            "required": true,
+            "example": "2024-01-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "date where data end",
+            "required": true,
+            "example": "2024-12-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "model",
+            "in": "path",
+            "description": "gpt model",
+            "required": true,
+            "example": "gpt-4o-mini",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "path",
+            "description": "LATEST, EARLIEST, RELEVANCE",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "1, ..., 1000",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/comparison/moving-average/{symbol}/{dateStart}/{dateEnd}/{model}/{interval}/{timePeriod}/{seriesType}/{functionType}": {
+      "get": {
+        "summary": "MovingAverageComparison",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "symbol e.g. AAPL, IBM etc",
+            "required": true,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "date where data starts",
+            "required": true,
+            "example": "2024-01-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "date where data end",
+            "required": true,
+            "example": "2024-12-31",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "model",
+            "in": "path",
+            "description": "gpt model",
+            "required": true,
+            "example": "gpt-4o-mini",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "interval",
+            "in": "path",
+            "description": "eg. 1min, 5min, daily, weekly (see alphavantage.co/documentation)",
+            "required": true,
+            "example": "weekly",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timePeriod",
+            "in": "path",
+            "description": "datapoints used to calulcate MA, muste be positive integer",
+            "required": true,
+            "example": "10",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "seriesType",
+            "in": "path",
+            "description": "open, close, high, low",
+            "required": true,
+            "example": "close",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "functionType",
+            "in": "path",
+            "description": "SMA, EMA, WMA, DEMA, TEMA, TRIMA, KAMA",
+            "required": true,
+            "example": "SMA",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/comparison/consistency/reproducibility": {
+      "post": {
+        "summary": "Reproducibility Insert",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tickers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "single ticker"
+                    },
+                    "description": "array of tickers"
+                  },
+                  "dateStart": {
+                    "type": "string",
+                    "description": "2024-01-01"
+                  },
+                  "dateEnd": {
+                    "type": "string",
+                    "description": "2024-01-05"
+                  }
+                },
+                "required": [
+                  "tickers",
+                  "dateStart",
+                  "dateEnd"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/company/{ticker}": {
+      "get": {
+        "summary": "Get Company By Ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "DELETE Company",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/company": {
+      "post": {
+        "summary": "Add Company",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ticker": {
+                    "type": "string",
+                    "faker": "AAPL"
+                  },
+                  "name": {
+                    "type": "string",
+                    "faker": "Apple"
+                  },
+                  "sector": {
+                    "type": "string",
+                    "faker": "technology"
+                  },
+                  "volatility": {
+                    "type": "string",
+                    "faker": "low"
+                  },
+                  "size": {
+                    "type": "string",
+                    "faker": "large"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "name",
+                  "sector",
+                  "volatility",
+                  "size"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "patch": {
+        "summary": "Patch Company",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ticker": {
+                    "type": "string",
+                    "faker": "AAPL"
+                  },
+                  "name": {
+                    "type": "string",
+                    "faker": "Apple"
+                  },
+                  "sector": {
+                    "type": "string",
+                    "faker": "technology"
+                  },
+                  "volatility": {
+                    "type": "string",
+                    "faker": "low"
+                  },
+                  "size": {
+                    "type": "string",
+                    "faker": "large"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "name",
+                  "sector",
+                  "volatility",
+                  "size"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/get/all": {
+      "post": {
+        "summary": "Get All Prices for Ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ticker": {
+                    "type": "string",
+                    "faker": "AAPL",
+                    "description": "Ticker of Stock"
+                  },
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "interval",
+                  "timeFrame"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/get/timespan": {
+      "post": {
+        "summary": "Get All Prices with Timespan",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ticker": {
+                    "type": "string",
+                    "faker": "AAPL",
+                    "description": "Ticker of Stock"
+                  },
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  },
+                  "dateStart": {
+                    "type": "string",
+                    "faker": "2024-12-31",
+                    "description": "YYYY-MM-DD"
+                  },
+                  "dateEnd": {
+                    "type": "string",
+                    "faker": "2025-01-01",
+                    "description": "YYYY-MM-DD"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "interval",
+                  "timeFrame",
+                  "dateStart",
+                  "dateEnd"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/included": {
+      "post": {
+        "summary": "Get Included Tickers",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  }
+                },
+                "required": [
+                  "interval",
+                  "timeFrame"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/excluded": {
+      "post": {
+        "summary": "Get Excluded Tickers",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  }
+                },
+                "required": [
+                  "interval",
+                  "timeFrame"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/update": {
+      "post": {
+        "summary": "Update Prices For Ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ticker": {
+                    "type": "string",
+                    "faker": "AAPL",
+                    "description": "Ticker of Stock"
+                  },
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "interval",
+                  "timeFrame"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/update/all": {
+      "post": {
+        "summary": "Update All Prices ",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  }
+                },
+                "required": [
+                  "interval",
+                  "timeFrame"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/prices/": {
+      "delete": {
+        "summary": "DELETE All Prices For Ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ticker": {
+                    "type": "string",
+                    "faker": "AAPL",
+                    "description": "Ticker of Stock"
+                  },
+                  "interval": {
+                    "type": "string",
+                    "faker": "null",
+                    "description": "if INTRADAY then null, else 1min, 5min, 15min, 30min, 60min"
+                  },
+                  "timeFrame": {
+                    "type": "string",
+                    "faker": "TIME_SERIES_DAILY",
+                    "description": "INTRADAY, DAILY, WEEKLY, MONTHLY available"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "interval",
+                  "timeFrame"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/g/{ticker}/{dateStart}/{dateEnd}": {
+      "get": {
+        "summary": "Get GNews By Date",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Update GNews Articles for ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Delete Gnews In Timespan",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/g/{ticker}": {
+      "get": {
+        "summary": "Get All GNews",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Delete All Gnews for ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/g/all/{dateStart}/{dateEnd}/{limit}": {
+      "post": {
+        "summary": "Update All Tickers in database with Gnews",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/g/all/{year}/{limit}": {
+      "post": {
+        "summary": "Update All Tickers in database with Gnews For every day",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/alpha/{ticker}/{dateStart}/{dateEnd}": {
+      "get": {
+        "summary": "Get AlphaNews By Date",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/alpha/{ticker}": {
+      "get": {
+        "summary": "Get All Alphanews",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/alpha/{ticker}/{dateStart}/{dateEnd}/{limit}": {
+      "post": {
+        "summary": "Update AphaNews Articles for ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/alpha/all/{dateStart}/{dateEnd}/{limit}": {
+      "post": {
+        "summary": "Update All Tickers in database with AlphaNews",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/{ticker}": {
+      "get": {
+        "summary": "Get all News by ticker",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/news/{ticker}/{dateStart}/{dateEnd}": {
+      "get": {
+        "summary": "Get all News by ticker and date",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/technical/add/{ticker}": {
+      "post": {
+        "summary": "Add technical Data",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "functionType": "RSI",
+                "dateStart": "2024-12-01",
+                "dateEnd": "2024-12-31",
+                "limit": 50,
+                "timePeriod": 60
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/data/technical/get/{ticker}": {
+      "post": {
+        "summary": "get technical data for stock by timerange",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "functionType": "RSI",
+                "dateStart": "2024-12-01",
+                "dateEnd": "2024-12-31"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/sentiment/{ticker}/{date}": {
+      "post": {
+        "summary": "Analayze by Ticker And Day",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "2024-11-18",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/sentiment/all/{date}": {
+      "post": {
+        "summary": "Analyse All by day",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "2024-11-18",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/sentiment/full/{year}/{monthStart}/{monthEnd}": {
+      "post": {
+        "summary": "Analyze all for year",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "monthStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "monthEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/sentiment": {
+      "get": {
+        "summary": "Get sentiment analysis",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actionType",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "long",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2024-01-01",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2024-12-21",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/technical/{ticker}/{date}": {
+      "post": {
+        "summary": "Analyze by ticker and day",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "2024-11-18",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/technical/all/{date}": {
+      "post": {
+        "summary": "Analyze all by day",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "2024-11-18",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/technical/full/{year}/{monthStart}/{monthEnd}": {
+      "post": {
+        "summary": "Analyze all by day Copy",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "monthStart",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "monthEnd",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/technical": {
+      "get": {
+        "summary": "Get technical analysis",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actionType",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "long",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2024-01-01",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2024-12-21",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/results/get-profit-loss-ratio": {
+      "get": {
+        "summary": "Get Profit Loss Ratio",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "excludedCompanies",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": [
+              ""
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "includedStrategies",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/results/get-average-return-per-trade": {
+      "get": {
+        "summary": "Get Average Return per Trade",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "excludedCompanies",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": [
+              ""
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "includedStrategies",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/results/get-overall-return": {
+      "get": {
+        "summary": "Get Overall Return",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "excludedCompanies",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": [
+              ""
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "includedStrategies",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/": {
+      "post": {
+        "summary": "Trigger analysis of actions",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/reset": {
+      "delete": {
+        "summary": "Reset actions and analysis",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis/all": {
+      "get": {
+        "summary": "Get All Analysis",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/analysis": {
+      "get": {
+        "summary": "Get Analysis with filters",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "AAPL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "analysisType",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "technical",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actionType",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "long",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "closingStrategy",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "take_profit",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateStart",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2024-01-01",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateEnd",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2024-12-31",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": {}
+}
